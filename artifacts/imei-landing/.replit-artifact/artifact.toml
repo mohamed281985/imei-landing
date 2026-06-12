@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "IMEI Landing Page"
+version = "1.0.0"
+id = "artifacts/imei-landing"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25784
+
+[services.development]
+run = "pnpm --filter @workspace/imei-landing run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/imei-landing", "run", "build" ]
+publicDir = "artifacts/imei-landing/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25784"
+BASE_PATH = "/"
