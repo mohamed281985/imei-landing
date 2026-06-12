@@ -124,35 +124,65 @@ export default function LandingPage() {
               </div>
             </motion.div>
 
-            {/* Hero phones — desktop: side-by-side angled like reference, mobile: hidden */}
-            <div className="relative hidden lg:flex items-center justify-center h-[580px]" style={{ perspective: "1200px" }}>
-              {/* Back phone — left side, same tilt direction */}
+            {/* Hero phones — responsive */}
+            <div className="flex justify-center pt-4 lg:pt-0" dir="ltr">
+
+              {/* ── Mobile: single centered phone ── */}
               <motion.div
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="absolute left-0 top-16 w-[230px] rounded-[36px] overflow-hidden border-[6px] border-white z-10 animate-float-delayed"
-                style={{
-                  transform: "perspective(1200px) rotateY(14deg) rotateX(4deg)",
-                  boxShadow: "0 30px 60px rgba(255,109,0,0.18), 0 0 0 1px rgba(255,255,255,0.5)"
-                }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="lg:hidden animate-float"
+                style={{ width: "160px" }}
               >
-                <img src={imeiSearch} alt="IMEI Search Screen" className="w-full h-auto block" />
+                <div style={{ borderRadius: "28px", overflow: "hidden", border: "5px solid white", boxShadow: "0 24px 48px rgba(25,118,210,0.22)" }}>
+                  <img src={homeScreen} alt="IMEI App" className="w-full h-auto block" />
+                </div>
               </motion.div>
 
-              {/* Front phone — right side, same tilt direction, slightly larger */}
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="absolute right-0 top-4 w-[255px] rounded-[36px] overflow-hidden border-[6px] border-white z-20 animate-float"
-                style={{
-                  transform: "perspective(1200px) rotateY(14deg) rotateX(4deg)",
-                  boxShadow: "0 40px 80px rgba(25,118,210,0.25), 0 0 0 1px rgba(255,255,255,0.6)"
-                }}
-              >
-                <img src={homeScreen} alt="IMEI Home Screen" className="w-full h-auto block" />
-              </motion.div>
+              {/* ── Desktop: two overlapping angled phones ── */}
+              <div className="hidden lg:flex items-start" style={{ position: "relative", height: "540px", width: "440px" }}>
+                {/* Back phone — upper-left */}
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="animate-float-delayed"
+                  style={{
+                    position: "absolute",
+                    top: "0px",
+                    left: "0px",
+                    width: "200px",
+                    zIndex: 10,
+                    transform: "perspective(900px) rotateY(12deg) rotateX(4deg)",
+                  }}
+                >
+                  <div style={{ borderRadius: "30px", overflow: "hidden", border: "6px solid white", boxShadow: "0 30px 60px rgba(255,109,0,0.16)" }}>
+                    <img src={imeiSearch} alt="IMEI Search" className="w-full h-auto block" />
+                  </div>
+                </motion.div>
+
+                {/* Front phone — lower-right, overlaps back phone */}
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="animate-float"
+                  style={{
+                    position: "absolute",
+                    top: "60px",
+                    left: "160px",
+                    width: "240px",
+                    zIndex: 20,
+                    transform: "perspective(900px) rotateY(12deg) rotateX(4deg)",
+                  }}
+                >
+                  <div style={{ borderRadius: "32px", overflow: "hidden", border: "6px solid white", boxShadow: "0 40px 80px rgba(25,118,210,0.24)" }}>
+                    <img src={homeScreen} alt="IMEI Home" className="w-full h-auto block" />
+                  </div>
+                </motion.div>
+              </div>
+
             </div>
           </div>
         </div>
