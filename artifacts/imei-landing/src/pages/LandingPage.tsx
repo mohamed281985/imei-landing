@@ -96,14 +96,14 @@ export default function LandingPage() {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-4 items-center">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-4 items-center">
 
             {/* ── RIGHT col: text ── */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-center lg:text-right"
+              className="text-center md:text-right"
             >
               {/* Trust badge */}
               <motion.div
@@ -120,12 +120,12 @@ export default function LandingPage() {
                 اجعل شراء وبيع<br/>
                 <span className="text-secondary">الهواتف أكثر أماناً</span>
               </h1>
-              <p className="text-base lg:text-lg text-muted-foreground mb-7 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+              <p className="text-base lg:text-lg text-muted-foreground mb-7 max-w-lg mx-auto md:mx-0 leading-relaxed">
                 تحقق من حالة الهاتف قبل الشراء، واستعرض سجل الملكية والمتاجر الموثوقة في مكان واحد.
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-7">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start mb-7">
                 <Button size="lg" asChild className="rounded-full h-13 px-7 bg-primary hover:bg-primary/90 text-white font-bold text-base shadow-xl shadow-primary/30">
                   <a href="https://play.google.com/store/apps/details?id=com.imei.app" target="_blank" rel="noreferrer">
                     <SiGoogleplay className="ml-2 w-5 h-5" />
@@ -145,7 +145,7 @@ export default function LandingPage() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                className="flex items-center gap-4 justify-center lg:justify-start"
+                className="flex items-center gap-4 justify-center md:justify-start"
               >
                 {/* Avatars */}
                 <div className="flex" dir="ltr">
@@ -169,14 +169,14 @@ export default function LandingPage() {
             </motion.div>
 
             {/* ── LEFT col: notification cards + phones ── */}
-            <div className="flex justify-center lg:justify-start" dir="ltr">
+            <div className="flex justify-center md:justify-start" dir="ltr">
 
-              {/* Mobile: single phone */}
+              {/* Mobile only: single phone (< 768px) */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
-                className="lg:hidden animate-float"
+                className="md:hidden animate-float"
                 style={{ width: "155px" }}
               >
                 <div style={{ borderRadius: "26px", overflow: "hidden", border: "5px solid white", boxShadow: "0 24px 48px rgba(25,118,210,0.22)" }}>
@@ -184,8 +184,8 @@ export default function LandingPage() {
                 </div>
               </motion.div>
 
-              {/* Desktop: cards + two phones */}
-              <div className="hidden lg:block relative" style={{ width: "500px", height: "560px" }}>
+              {/* Desktop (768px+): notification cards + two phones, scaled to fit */}
+              <div className="hidden md:block relative scale-[0.68] lg:scale-[0.88] xl:scale-100 origin-left" style={{ width: "500px", height: "560px" }}>
 
                 {/* Notification cards — left column */}
                 <div className="absolute flex flex-col gap-3" style={{ left: 0, top: "70px", zIndex: 30 }}>
