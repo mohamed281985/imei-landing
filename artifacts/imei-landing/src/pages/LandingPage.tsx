@@ -216,9 +216,10 @@ export default function LandingPage() {
         <div className="relative w-full overflow-x-hidden py-10" dir="ltr">
           <div className="animate-scroll-x">
             {[splash, homeScreen, imeiSearch, reportLost, registerPhone, splash, homeScreen, imeiSearch, reportLost, registerPhone].map((img, i) => (
-              <div key={i} style={{ width: "250px", flexShrink: 0, padding: "0 12px" }}>
-                <div className="rounded-[36px] overflow-hidden border-[8px] border-white shadow-xl shadow-primary/10">
-                  <img src={img} alt={`App Screenshot ${i}`} className="w-full h-auto object-cover block" />
+              <div key={i} style={{ width: "clamp(140px, 22vw, 230px)", flexShrink: 0, padding: "0 10px" }}>
+                <div className="rounded-[28px] overflow-hidden border-[6px] border-white shadow-xl shadow-primary/10"
+                     style={{ height: "clamp(280px, 44vw, 460px)" }}>
+                  <img src={img} alt={`App Screenshot ${i}`} className="w-full h-full object-cover object-top block" />
                 </div>
               </div>
             ))}
