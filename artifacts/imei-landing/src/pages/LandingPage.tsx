@@ -84,180 +84,270 @@ export default function LandingPage() {
         </div>
       )}
 
-      {/* 2. Hero Section */}
-      <section id="hero" className="relative pt-28 pb-12 lg:pt-36 lg:pb-20 overflow-hidden bg-gradient-to-b from-[#EEF4FF] to-white">
-        {/* Floating background icons */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-          <Shield className="absolute top-[18%] right-[8%] w-10 h-10 text-primary/15 animate-float" />
-          <Lock className="absolute top-[55%] right-[5%] w-8 h-8 text-primary/10 animate-float-delayed" />
-          <Search className="absolute bottom-[15%] right-[18%] w-12 h-12 text-primary/10 animate-float-fast" />
-          <BadgeCheck className="absolute top-[12%] right-[40%] w-6 h-6 text-secondary/30 animate-float-delayed" />
-          <Smartphone className="absolute bottom-[25%] right-[35%] w-8 h-8 text-secondary/15 animate-float" />
-        </div>
+      {/* 2. Hero Section — Premium Redesign */}
+      <section
+        id="hero"
+        className="relative min-h-[92vh] flex items-center overflow-hidden"
+        style={{ background: "linear-gradient(145deg,#EBF3FF 0%,#F6F9FF 45%,#FFF6EE 100%)" }}
+      >
+        {/* ── Background: dot grid ── */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: "radial-gradient(circle, rgba(37,99,235,0.10) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }} />
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-4 items-center">
+        {/* ── Background: glow orbs ── */}
+        <div className="absolute pointer-events-none" style={{ top:"-120px", right:"0%", width:"600px", height:"600px", borderRadius:"50%", background:"radial-gradient(circle,rgba(37,99,235,0.18) 0%,transparent 70%)", filter:"blur(80px)" }} />
+        <div className="absolute pointer-events-none" style={{ bottom:"-100px", left:"15%", width:"500px", height:"500px", borderRadius:"50%", background:"radial-gradient(circle,rgba(255,138,0,0.14) 0%,transparent 70%)", filter:"blur(80px)" }} />
+        <div className="absolute pointer-events-none" style={{ top:"35%", left:"35%", width:"350px", height:"350px", borderRadius:"50%", background:"radial-gradient(circle,rgba(37,99,235,0.08) 0%,transparent 70%)", filter:"blur(60px)" }} />
 
-            {/* ── RIGHT col: text ── */}
+        {/* ── Background: SVG tech rings ── */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity:0.05 }} xmlns="http://www.w3.org/2000/svg">
+          <circle cx="28%" cy="52%" r="200" stroke="#2563EB" strokeWidth="1" fill="none" />
+          <circle cx="28%" cy="52%" r="340" stroke="#2563EB" strokeWidth="0.7" fill="none" />
+          <circle cx="28%" cy="52%" r="490" stroke="#2563EB" strokeWidth="0.4" fill="none" />
+          <line x1="4%"  y1="22%" x2="28%" y2="52%" stroke="#2563EB" strokeWidth="0.8" />
+          <line x1="2%"  y1="80%" x2="28%" y2="52%" stroke="#2563EB" strokeWidth="0.8" />
+          <line x1="28%" y1="0%"  x2="28%" y2="52%" stroke="#2563EB" strokeWidth="0.6" />
+          <line x1="28%" y1="100%" x2="28%" y2="52%" stroke="#2563EB" strokeWidth="0.6" />
+          <line x1="56%" y1="15%" x2="28%" y2="52%" stroke="#FF8A00" strokeWidth="0.6" />
+          <line x1="58%" y1="88%" x2="28%" y2="52%" stroke="#FF8A00" strokeWidth="0.6" />
+        </svg>
+
+        <div className="container mx-auto px-6 relative z-10 py-24">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+
+            {/* ══════════ TEXT COLUMN (right in RTL) ══════════ */}
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center md:text-right"
+              initial={{ opacity:0, x:40 }}
+              animate={{ opacity:1, x:0 }}
+              transition={{ duration:0.7, ease:"easeOut" }}
+              className="text-center md:text-right flex flex-col justify-center"
             >
-              {/* Trust badge */}
+              {/* Live badge */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="inline-flex items-center gap-2 bg-white border border-blue-100 rounded-full px-4 py-2 text-sm font-semibold text-primary shadow-sm mb-5"
+                initial={{ opacity:0, y:-12 }}
+                animate={{ opacity:1, y:0 }}
+                transition={{ duration:0.5 }}
+                className="inline-flex items-center gap-2 self-center md:self-start mb-6"
+                style={{
+                  background:"rgba(255,255,255,0.85)",
+                  backdropFilter:"blur(14px)",
+                  border:"1px solid rgba(37,99,235,0.18)",
+                  borderRadius:"100px",
+                  padding:"6px 18px",
+                  boxShadow:"0 4px 20px rgba(37,99,235,0.10)",
+                }}
               >
-                <Shield className="w-4 h-4" />
-                منصة موثوقة لفحص الهواتف
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="font-semibold text-sm" style={{ color:"#2563EB" }}>منصة موثوقة لفحص الهواتف</span>
               </motion.div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-[3.4rem] font-black text-[#0D2137] leading-[1.2] mb-5">
-                اجعل شراء وبيع<br/>
-                <span className="text-secondary">الهواتف أكثر أماناً</span>
-              </h1>
-              <p className="text-base lg:text-lg text-muted-foreground mb-7 max-w-lg mx-auto md:mx-0 leading-relaxed">
-                تحقق من حالة الهاتف قبل الشراء، واستعرض سجل الملكية والمتاجر الموثوقة في مكان واحد.
-              </p>
+              {/* Main title */}
+              <motion.h1
+                initial={{ opacity:0, y:20 }}
+                animate={{ opacity:1, y:0 }}
+                transition={{ duration:0.6, delay:0.15 }}
+                className="font-black text-[#0D2137] mb-5 leading-[1.18]"
+                style={{ fontSize:"clamp(2.4rem,4.8vw,3.8rem)" }}
+              >
+                اجعل شراء وبيع<br />
+                الهواتف أكثر{" "}
+                <span style={{
+                  background:"linear-gradient(90deg,#FF8A00,#FF5500)",
+                  WebkitBackgroundClip:"text",
+                  WebkitTextFillColor:"transparent",
+                  backgroundClip:"text",
+                }}>أمانًا</span>
+              </motion.h1>
+
+              {/* Subtitle */}
+              <motion.p
+                initial={{ opacity:0, y:16 }}
+                animate={{ opacity:1, y:0 }}
+                transition={{ duration:0.6, delay:0.28 }}
+                className="text-gray-500 mb-8 leading-[1.8] max-w-md mx-auto md:mx-0"
+                style={{ fontSize:"clamp(0.95rem,1.8vw,1.1rem)" }}
+              >
+                تحقق من حالة الهاتف قبل الشراء، استعرض سجل الملكية، واكتشف الأجهزة المبلغ عنها من مكان واحد.
+              </motion.p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start mb-7">
-                <Button size="lg" asChild className="rounded-full h-13 px-7 bg-primary hover:bg-primary/90 text-white font-bold text-base shadow-xl shadow-primary/30">
-                  <a href="https://play.google.com/store/apps/details?id=com.imei.app" target="_blank" rel="noreferrer">
-                    <SiGoogleplay className="ml-2 w-5 h-5" />
-                    تحميل التطبيق
-                  </a>
-                </Button>
-                <Button size="lg" variant="outline" asChild className="rounded-full h-13 px-7 border-primary/30 hover:bg-primary/5 text-primary font-semibold text-base">
-                  <a href="#features">
-                    استكشاف المميزات
-                    <span className="mr-2">←</span>
-                  </a>
-                </Button>
-              </div>
+              <motion.div
+                initial={{ opacity:0, y:16 }}
+                animate={{ opacity:1, y:0 }}
+                transition={{ duration:0.6, delay:0.4 }}
+                className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-8"
+              >
+                <motion.a
+                  href="https://play.google.com/store/apps/details?id=com.imei.app"
+                  target="_blank" rel="noreferrer"
+                  whileHover={{ scale:1.04, y:-3 }}
+                  whileTap={{ scale:0.97 }}
+                  className="inline-flex items-center justify-center gap-2.5 font-bold text-white"
+                  style={{
+                    background:"linear-gradient(135deg,#2563EB,#1D4ED8)",
+                    borderRadius:"16px", padding:"15px 30px", fontSize:"1rem",
+                    boxShadow:"0 8px 28px rgba(37,99,235,0.38),0 2px 8px rgba(37,99,235,0.18)",
+                  }}
+                >
+                  <SiGoogleplay className="w-5 h-5" />
+                  تحميل التطبيق
+                </motion.a>
+
+                <motion.a
+                  href="#check"
+                  whileHover={{ scale:1.04, y:-3 }}
+                  whileTap={{ scale:0.97 }}
+                  className="inline-flex items-center justify-center gap-2.5 font-bold"
+                  style={{
+                    background:"rgba(255,255,255,0.80)",
+                    backdropFilter:"blur(12px)",
+                    border:"1.5px solid rgba(37,99,235,0.22)",
+                    borderRadius:"16px", padding:"15px 30px", fontSize:"1rem",
+                    color:"#2563EB",
+                    boxShadow:"0 4px 20px rgba(37,99,235,0.09)",
+                  }}
+                >
+                  <Search className="w-4 h-4" />
+                  فحص IMEI الآن
+                </motion.a>
+              </motion.div>
 
               {/* Rating row */}
               <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
+                initial={{ opacity:0 }}
+                animate={{ opacity:1 }}
+                transition={{ delay:0.75 }}
                 className="flex items-center gap-4 justify-center md:justify-start"
               >
-                {/* Avatars */}
                 <div className="flex" dir="ltr">
-                  {["#3B82F6","#F97316","#10B981","#8B5CF6"].map((c, i) => (
-                    <div key={i} className="w-9 h-9 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold -ml-2 first:ml-0"
-                      style={{ background: `linear-gradient(135deg, ${c}cc, ${c})`, zIndex: 4 - i }}>
+                  {["#3B82F6","#F97316","#10B981","#8B5CF6"].map((c,i) => (
+                    <div key={i} className="w-9 h-9 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold"
+                      style={{ background:`linear-gradient(135deg,${c}99,${c})`, marginLeft:i>0?"-10px":"0", zIndex:4-i, position:"relative" }}>
                       {["م","أ","س","ع"][i]}
                     </div>
                   ))}
                 </div>
-                <div className="text-right lg:text-right">
-                  <div className="flex items-center gap-1 justify-center lg:justify-start" dir="ltr">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className={`w-4 h-4 ${i < 4 ? "fill-yellow-400 text-yellow-400" : "fill-yellow-200 text-yellow-200"}`} />
+                <div className="text-right">
+                  <div className="flex items-center gap-1" dir="ltr">
+                    {[...Array(5)].map((_,i) => (
+                      <Star key={i} className={`w-4 h-4 ${i<4?"fill-yellow-400 text-yellow-400":"fill-yellow-200 text-yellow-200"}`} />
                     ))}
-                    <span className="font-black text-[#0D2137] text-sm mr-1">4.8</span>
+                    <span className="font-black text-[#0D2137] text-sm mr-1.5">4.8</span>
                   </div>
-                  <p className="text-xs text-muted-foreground">أكثر من 10,000 مستخدم يثقون بنا</p>
+                  <p className="text-xs text-gray-400">أكثر من 10,000 مستخدم يثقون بنا</p>
                 </div>
               </motion.div>
             </motion.div>
 
-            {/* ── LEFT col: notification cards + phones ── */}
+            {/* ══════════ PHONES COLUMN (left in RTL) ══════════ */}
             <div className="flex justify-center md:justify-start" dir="ltr">
 
-              {/* Mobile only: single phone (< 768px) */}
+              {/* Mobile only: single phone */}
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.3 }}
-                className="md:hidden animate-float"
-                style={{ width: "155px" }}
+                initial={{ opacity:0, y:30 }}
+                animate={{ opacity:1, y:0 }}
+                transition={{ duration:0.7, delay:0.3 }}
+                className="md:hidden"
+                style={{
+                  width:"155px", borderRadius:"28px", overflow:"hidden",
+                  border:"5px solid white", boxShadow:"0 24px 48px rgba(37,99,235,0.22)",
+                }}
               >
-                <div style={{ borderRadius: "26px", overflow: "hidden", border: "5px solid white", boxShadow: "0 24px 48px rgba(25,118,210,0.22)" }}>
-                  <img src={imeiSearch} alt="IMEI App" className="w-full h-auto block" />
-                </div>
+                <img src={imeiSearch} alt="IMEI App" className="w-full h-auto block" />
               </motion.div>
 
-              {/* Desktop (768px+): notification cards + two phones, scaled to fit */}
-              <div className="hidden md:block relative scale-[0.68] lg:scale-[0.88] xl:scale-100 origin-left" style={{ width: "500px", height: "560px" }}>
+              {/* Desktop (768px+): two phones + 5 floating glassmorphism cards */}
+              <div
+                className="hidden md:block relative scale-[0.65] lg:scale-[0.85] xl:scale-100 origin-left"
+                style={{ width:"565px", height:"605px" }}
+              >
+                {/* Blue glow behind front phone */}
+                <div style={{
+                  position:"absolute", top:"80px", left:"90px",
+                  width:"260px", height:"260px", borderRadius:"50%",
+                  background:"radial-gradient(circle,rgba(37,99,235,0.25) 0%,transparent 70%)",
+                  filter:"blur(48px)", zIndex:1,
+                }} />
+                {/* Orange glow behind back phone */}
+                <div style={{
+                  position:"absolute", top:"100px", left:"280px",
+                  width:"200px", height:"200px", borderRadius:"50%",
+                  background:"radial-gradient(circle,rgba(255,138,0,0.20) 0%,transparent 70%)",
+                  filter:"blur(40px)", zIndex:1,
+                }} />
 
-                {/* Notification cards — left column */}
-                <div className="absolute flex flex-col gap-3" style={{ left: 0, top: "70px", zIndex: 30 }}>
-                  {[
-                    { Icon: Search, title: "IMEI Check", sub: "تحقق من حالة الجهاز", bg: "#EFF6FF", ic: "#1976D2" },
-                    { Icon: FileText, title: "سجل الملكية", sub: "اعرف تاريخ الجهاز", bg: "#FFF7ED", ic: "#F97316" },
-                    { Icon: Bell, title: "إشعارات فورية", sub: "تنبيهات عند البلاغ", bg: "#F0FDF4", ic: "#16A34A" },
-                    { Icon: ShoppingBag, title: "متاجر موثوقة", sub: "تسوق بأمان", bg: "#FFF7ED", ic: "#F97316" },
-                  ].map((card, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, x: -24 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: 0.5 + i * 0.12 }}
-                      className="bg-white rounded-2xl flex items-center gap-3 px-3 py-2.5"
-                      style={{ width: "162px", boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }}
-                    >
-                      <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: card.bg }}>
-                        <card.Icon style={{ color: card.ic }} className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <p className="text-[11px] font-bold text-[#0D2137] leading-tight">{card.title}</p>
-                        <p className="text-[9px] text-muted-foreground leading-tight mt-0.5">{card.sub}</p>
-                      </div>
-                    </motion.div>
-                  ))}
+                {/* ── BACK PHONE ── */}
+                <div style={{
+                  position:"absolute", top:"60px", left:"300px",
+                  width:"192px", zIndex:10,
+                  transform:"perspective(1000px) rotateY(-13deg) rotateX(6deg)",
+                }}>
+                  <motion.div
+                    initial={{ opacity:0, y:50 }}
+                    animate={{ opacity:1, y:[0,-11,0] }}
+                    transition={{ opacity:{duration:0.8,delay:0.4}, y:{delay:0.4,duration:7,repeat:Infinity,ease:"easeInOut",times:[0,0.5,1]} }}
+                    style={{ borderRadius:"36px", overflow:"hidden", border:"7px solid white", boxShadow:"0 40px 80px rgba(255,138,0,0.18),0 20px 40px rgba(0,0,0,0.12)" }}
+                  >
+                    <img src={homeScreen} alt="IMEI Results" className="w-full h-auto block" />
+                  </motion.div>
                 </div>
 
-                {/* Back phone — right, partially visible behind front phone */}
-                <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.35 }}
-                  className="animate-float-delayed"
-                  style={{
-                    position: "absolute",
-                    top: "50px",
-                    left: "308px",
-                    width: "175px",
-                    zIndex: 10,
-                    transform: "perspective(800px) rotateY(-6deg) rotateX(2deg)",
-                    boxShadow: "0 28px 56px rgba(255,109,0,0.14)",
-                    borderRadius: "28px",
-                    overflow: "hidden",
-                    border: "5px solid white",
-                  }}
-                >
-                  <img src={homeScreen} alt="IMEI Results" className="w-full h-auto block" />
-                </motion.div>
+                {/* ── FRONT PHONE ── */}
+                <div style={{
+                  position:"absolute", top:"0px", left:"120px",
+                  width:"235px", zIndex:20,
+                  transform:"perspective(1000px) rotateY(-13deg) rotateX(6deg)",
+                }}>
+                  <motion.div
+                    initial={{ opacity:0, y:50 }}
+                    animate={{ opacity:1, y:[0,-14,0] }}
+                    transition={{ opacity:{duration:0.8,delay:0.2}, y:{delay:0.2,duration:6,repeat:Infinity,ease:"easeInOut",times:[0,0.5,1]} }}
+                    style={{ borderRadius:"40px", overflow:"hidden", border:"8px solid white", boxShadow:"0 60px 120px rgba(37,99,235,0.30),0 30px 60px rgba(0,0,0,0.14)" }}
+                  >
+                    <img src={imeiSearch} alt="IMEI Check" className="w-full h-auto block" />
+                  </motion.div>
+                </div>
 
-                {/* Front phone — center, main */}
-                <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="animate-float"
-                  style={{
-                    position: "absolute",
-                    top: "0px",
-                    left: "170px",
-                    width: "215px",
-                    zIndex: 20,
-                    transform: "perspective(800px) rotateY(-6deg) rotateX(2deg)",
-                    boxShadow: "0 36px 72px rgba(25,118,210,0.22)",
-                    borderRadius: "32px",
-                    overflow: "hidden",
-                    border: "6px solid white",
-                  }}
-                >
-                  <img src={imeiSearch} alt="IMEI Check" className="w-full h-auto block" />
-                </motion.div>
-
+                {/* ── FLOATING GLASSMORPHISM CARDS ── */}
+                {([
+                  { Icon:Search,    title:"فحص IMEI",       sub:"تحقق من حالة الجهاز",  iconBg:"linear-gradient(135deg,#EFF6FF,#DBEAFE)", ic:"#2563EB", top:8,   left:0,   floatDur:3.8, floatDelay:0    },
+                  { Icon:FileText,  title:"سجل الملكية",    sub:"اعرف تاريخ الجهاز",    iconBg:"linear-gradient(135deg,#FFF7ED,#FED7AA)", ic:"#F97316", top:195, left:0,   floatDur:4.5, floatDelay:0.6  },
+                  { Icon:Shield,    title:"حماية المشترين", sub:"شراء آمن مضمون",        iconBg:"linear-gradient(135deg,#F0FDF4,#BBF7D0)", ic:"#16A34A", top:385, left:5,   floatDur:4.0, floatDelay:1.2  },
+                  { Icon:Bell,      title:"إشعارات فورية",  sub:"تنبيهات لحظية",         iconBg:"linear-gradient(135deg,#FAF5FF,#E9D5FF)", ic:"#7C3AED", top:5,   left:402, floatDur:3.5, floatDelay:0.3  },
+                  { Icon:ShoppingBag,title:"متاجر موثوقة", sub:"تسوق بأمان",            iconBg:"linear-gradient(135deg,#FFF7ED,#FED7AA)", ic:"#F97316", top:475, left:255, floatDur:4.2, floatDelay:0.9  },
+                ] as const).map((card, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity:0, scale:0.75 }}
+                    animate={{ opacity:1, scale:1, y:[0, -(6+i*1.5), 0] }}
+                    transition={{
+                      opacity:{ duration:0.5, delay:0.6+i*0.12 },
+                      scale:{ duration:0.5, delay:0.6+i*0.12 },
+                      y:{ duration:card.floatDur, delay:card.floatDelay, repeat:Infinity, ease:"easeInOut" },
+                    }}
+                    className="absolute flex items-center gap-3 px-3 py-2.5"
+                    style={{
+                      top:`${card.top}px`, left:`${card.left}px`,
+                      zIndex:30, width:"155px",
+                      background:"rgba(255,255,255,0.72)",
+                      backdropFilter:"blur(14px)",
+                      WebkitBackdropFilter:"blur(14px)",
+                      border:"1px solid rgba(255,255,255,0.65)",
+                      borderRadius:"18px",
+                      boxShadow:"0 8px 32px rgba(0,0,0,0.09),0 2px 8px rgba(0,0,0,0.04)",
+                    }}
+                  >
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background:card.iconBg }}>
+                      <card.Icon className="w-4 h-4" style={{ color:card.ic }} />
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-bold text-[#0D2137] leading-tight">{card.title}</p>
+                      <p className="text-[9.5px] text-gray-400 leading-tight mt-0.5">{card.sub}</p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
 
