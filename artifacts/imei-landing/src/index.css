@@ -244,10 +244,12 @@
 
 @keyframes scroll-x {
   0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-250px * 7)); }
+  100% { transform: translateX(-50%); }
 }
 .animate-scroll-x {
-  animation: scroll-x 40s linear infinite;
+  animation: scroll-x 35s linear infinite;
+  display: flex;
+  width: max-content;
 }
 
 html {

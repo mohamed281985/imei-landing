@@ -11,8 +11,8 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 
-// Assets
-import imeiLogo from "@assets/IMG_٢٠٢٦٠٤٢٥_٠٢٠٦٠٢_1781269330898.png";
+// Assets — logo uses public/ path (background already removed)
+const imeiLogo = "/imei-logo-nobg.png";
 import splash from "@assets/Screenshot_٢٠٢٦٠٦١١_١٥١١٤٧_1781269330762.jpg";
 import homeScreen from "@assets/Screenshot_٢٠٢٦٠٦١١_١٥٢٢١٢_1781269330788.jpg";
 import imeiSearch from "@assets/Screenshot_٢٠٢٦٠٦١١_١٥٢٢٣٤_1781269330799.jpg";
@@ -124,22 +124,34 @@ export default function LandingPage() {
               </div>
             </motion.div>
 
-            <div className="relative h-[500px] lg:h-[600px] hidden sm:block perspective-[1000px]">
-              <motion.div 
-                initial={{ opacity: 0, x: 50, rotateY: -15, rotateX: 5 }}
-                animate={{ opacity: 1, x: 0, rotateY: -15, rotateX: 5 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="absolute top-0 right-10 w-[240px] lg:w-[280px] rounded-[32px] overflow-hidden shadow-2xl shadow-primary/20 border-[6px] border-white z-20 animate-float"
-              >
-                <img src={homeScreen} alt="IMEI Home Screen" className="w-full h-auto" />
-              </motion.div>
-              <motion.div 
-                initial={{ opacity: 0, x: -50, rotateY: -15, rotateX: 5 }}
-                animate={{ opacity: 1, x: 0, rotateY: -15, rotateX: 5 }}
+            {/* Hero phones — desktop: side-by-side angled like reference, mobile: hidden */}
+            <div className="relative hidden lg:flex items-center justify-center h-[580px]" style={{ perspective: "1200px" }}>
+              {/* Back phone — left side, same tilt direction */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="absolute top-20 left-10 w-[220px] lg:w-[250px] rounded-[32px] overflow-hidden shadow-2xl shadow-secondary/20 border-[6px] border-white z-10 animate-float-delayed"
+                className="absolute left-0 top-16 w-[230px] rounded-[36px] overflow-hidden border-[6px] border-white z-10 animate-float-delayed"
+                style={{
+                  transform: "perspective(1200px) rotateY(14deg) rotateX(4deg)",
+                  boxShadow: "0 30px 60px rgba(255,109,0,0.18), 0 0 0 1px rgba(255,255,255,0.5)"
+                }}
               >
-                <img src={imeiSearch} alt="IMEI Search Screen" className="w-full h-auto" />
+                <img src={imeiSearch} alt="IMEI Search Screen" className="w-full h-auto block" />
+              </motion.div>
+
+              {/* Front phone — right side, same tilt direction, slightly larger */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="absolute right-0 top-4 w-[255px] rounded-[36px] overflow-hidden border-[6px] border-white z-20 animate-float"
+                style={{
+                  transform: "perspective(1200px) rotateY(14deg) rotateX(4deg)",
+                  boxShadow: "0 40px 80px rgba(25,118,210,0.25), 0 0 0 1px rgba(255,255,255,0.6)"
+                }}
+              >
+                <img src={homeScreen} alt="IMEI Home Screen" className="w-full h-auto block" />
               </motion.div>
             </div>
           </div>
@@ -200,12 +212,13 @@ export default function LandingPage() {
         <div className="container mx-auto px-4 text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-black text-[#0D2137]">كيف يعمل التطبيق؟</h2>
         </div>
-        <div className="relative w-full flex overflow-x-hidden py-10">
-          <div className="flex gap-8 px-8 min-w-max animate-scroll-x">
-            {[splash, homeScreen, imeiSearch, reportLost, registerPhone, homeScreen, imeiSearch].map((img, i) => (
-              <div key={i} className="w-[240px] md:w-[280px] flex-shrink-0">
+        {/* Infinite scroll: render items TWICE — animation moves by -50% then loops back seamlessly */}
+        <div className="relative w-full overflow-x-hidden py-10" dir="ltr">
+          <div className="animate-scroll-x">
+            {[splash, homeScreen, imeiSearch, reportLost, registerPhone, splash, homeScreen, imeiSearch, reportLost, registerPhone].map((img, i) => (
+              <div key={i} style={{ width: "250px", flexShrink: 0, padding: "0 12px" }}>
                 <div className="rounded-[36px] overflow-hidden border-[8px] border-white shadow-xl shadow-primary/10">
-                  <img src={img} alt={`App Screenshot ${i}`} className="w-full h-auto object-cover" />
+                  <img src={img} alt={`App Screenshot ${i}`} className="w-full h-auto object-cover block" />
                 </div>
               </div>
             ))}
