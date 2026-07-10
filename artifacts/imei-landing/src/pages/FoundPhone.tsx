@@ -38,8 +38,7 @@ export default function FoundPhone() {
 
     const controller = new AbortController();
 
-    fetch(`/api/found/${encodeURIComponent(token)}`, {
-      method: "GET",
+fetch(`https://imei-safe.me/api/found/${encodeURIComponent(token)}`, {      method: "GET",
       signal: controller.signal,
     })
       .then(async (response) => {
