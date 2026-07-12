@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useRoute } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
-import { AlertTriangle, ShieldCheck, MessageCircle, Phone, Shield, Link2, Sparkles, Lock, Calendar, Hash, User } from "lucide-react";
+import { AlertTriangle, ShieldCheck, MessageCircle, Phone, Shield, Link2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -107,7 +107,7 @@ export default function FoundPhone() {
           >
             <div className="flex items-center justify-center w-full sm:w-auto px-2 py-1 sm:px-0 sm:py-0 rounded-xl hover:bg-gray-50 transition-colors duration-200 cursor-pointer">
               <motion.div 
-                className="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl bg-gradient-to-br from-[#1565FF] to-[#0D47A1] flex items-center justify-center shadow-lg flex-shrink-0"
+                className="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl bg-gradient-to-br from-[#2F80ED] to-[#2563EB] flex items-center justify-center shadow-lg flex-shrink-0"
                 whileHover={{ rotate: 5, scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
@@ -138,14 +138,14 @@ export default function FoundPhone() {
               <motion.a 
                 key={index}
                 href="#" 
-                className="text-[#1F2937] hover:text-[#1565FF] relative font-medium text-center px-2 py-1 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                className="text-[#1F2937] hover:text-[#2F80ED] relative font-medium text-center px-2 py-1 rounded-lg hover:bg-gray-50 transition-colors duration-200"
                 whileHover={{ y: -2 }}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
                 {item}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#1565FF] transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2F80ED] transition-all duration-300 group-hover:w-full"></span>
               </motion.a>
             ))}
           </nav>
@@ -153,7 +153,7 @@ export default function FoundPhone() {
       </header>
 
       <div className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_top,rgba(21,101,255,0.1),transparent_50%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_top,rgba(47,128,237,0.1),transparent_50%)]" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-80 bg-[radial-gradient(circle_at_bottom,rgba(247,147,30,0.1),transparent_50%)]" />
         <div className="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col items-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
           <motion.div
@@ -171,7 +171,7 @@ export default function FoundPhone() {
                 {/* الخلفيات المتحركة */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
                   <motion.div 
-                    className="absolute -top-40 -right-40 w-80 h-80 bg-[#1565FF]/5 rounded-full blur-3xl"
+                    className="absolute -top-40 -right-40 w-80 h-80 bg-[#2F80ED]/5 rounded-full blur-3xl"
                     animate={{ 
                       x: [0, 40, 0],
                       y: [0, -40, 0]
@@ -197,15 +197,15 @@ export default function FoundPhone() {
                 </div>
                 
                 <motion.div 
-                  className="flex h-28 w-28 sm:h-32 sm:w-32 items-center justify-center rounded-full bg-gradient-to-br from-[#1565FF]/10 to-[#0D47A1]/10 text-[#1565FF] shadow-xl shadow-[#1565FF]/10 relative overflow-hidden z-10"
+                  className="flex h-28 w-28 sm:h-32 sm:w-32 items-center justify-center rounded-full bg-gradient-to-br from-[#2F80ED]/10 to-[#2563EB]/10 text-[#2F80ED] shadow-xl shadow-[#2F80ED]/10 relative overflow-hidden z-10"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 >
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="animate-spin rounded-full border-4 border-t-[#1565FF] border-[#E5E7EB] h-20 sm:h-24 w-20 sm:w-24" />
+                    <div className="animate-spin rounded-full border-4 border-t-[#2F80ED] border-[#E5E7EB] h-20 sm:h-24 w-20 sm:w-24" />
                   </div>
                   <motion.div 
-                    className="absolute inset-0 rounded-full border-2 border-[#1565FF]/20"
+                    className="absolute inset-0 rounded-full border-2 border-[#2F80ED]/20"
                     animate={{ scale: 1.2, opacity: 0 }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
                   />
@@ -368,17 +368,17 @@ export default function FoundPhone() {
                       initial={{ opacity: 0, x: 30 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.3 }}
-                      className="rounded-[20px] border border-[#1565FF]/15 bg-gradient-to-br from-white to-[#F0F9FF] p-8 shadow-xl shadow-[#1565FF]/5 overflow-hidden relative"
+                      className="rounded-[20px] border border-[#2F80ED]/15 bg-gradient-to-br from-white to-[#F0F9FF] p-8 shadow-xl shadow-[#2F80ED]/5 overflow-hidden relative"
                     >
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#1565FF]/5 to-transparent rounded-full blur-3xl"></div>
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#2F80ED]/5 to-transparent rounded-full blur-3xl"></div>
                       <div className="flex items-center justify-between gap-3 text-right relative z-10">
-                        <div className="rounded-2xl bg-gradient-to-br from-[#1565FF]/10 to-[#0D47A1]/10 p-4 text-[#1565FF] shadow-md shadow-[#1565FF]/10">
+                        <div className="rounded-2xl bg-gradient-to-br from-[#2F80ED]/10 to-[#2563EB]/10 p-4 text-[#2F80ED] shadow-md shadow-[#2F80ED]/10">
                           <Shield className="h-7 w-7" />
                         </div>
                         <div>
-                          <p className="text-sm uppercase tracking-[0.2em] text-[#1565FF] font-bold">IMEI SAFE</p>
+                          <p className="text-sm uppercase tracking-[0.2em] text-[#2F80ED] font-bold">IMEI SAFE</p>
                           <motion.h2 
-                            className="mt-3 text-3xl font-bold text-[#1F2937] bg-gradient-to-r from-[#1F2937] to-[#1565FF] bg-clip-text text-transparent"
+                            className="mt-3 text-3xl font-bold text-[#1F2937] bg-gradient-to-r from-[#1F2937] to-[#3B82F6] bg-clip-text text-transparent"
                             initial={{ y: 10, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.4 }}
@@ -425,7 +425,7 @@ export default function FoundPhone() {
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ delay: 0.3 }}
                     >
-                      هذا الهاتف مُبلغ بسرقته أو فقده
+                      هذا الهاتف مُبلغ عنه
                     </motion.h1>
                     <motion.p 
                       className="mt-4 max-w-2xl text-lg leading-8 text-[#4B5563] font-medium"
@@ -464,10 +464,7 @@ export default function FoundPhone() {
                             transition={{ delay: 0.6 }}
                             whileHover={{ y: -3 }}
                           >
-                            <div className="flex items-center justify-end gap-2 mb-2">
-                              <User className="h-4 w-4 text-[#6B7280]" />
-                              <p className="text-sm text-[#6B7280]">اسم المالك</p>
-                            </div>
+                            <p className="text-sm text-[#6B7280]">اسم المالك</p>
                             <p className="mt-2 text-lg font-semibold text-[#1F2937]">{data.owner_name || "غير متوفر"}</p>
                           </motion.div>
                           <motion.div 
@@ -477,10 +474,7 @@ export default function FoundPhone() {
                             transition={{ delay: 0.7 }}
                             whileHover={{ y: -3 }}
                           >
-                            <div className="flex items-center justify-end gap-2 mb-2">
-                              <Phone className="h-4 w-4 text-[#6B7280]" />
-                              <p className="text-sm text-[#6B7280]">رقم الهاتف</p>
-                            </div>
+                            <p className="text-sm text-[#6B7280]">رقم الهاتف</p>
                             <p className="mt-2 text-lg font-semibold text-[#1F2937]">{data.phone || "غير متوفر"}</p>
                           </motion.div>
                           <motion.div 
@@ -490,10 +484,7 @@ export default function FoundPhone() {
                             transition={{ delay: 0.8 }}
                             whileHover={{ y: -3 }}
                           >
-                            <div className="flex items-center justify-end gap-2 mb-2">
-                              <Hash className="h-4 w-4 text-[#6B7280]" />
-                              <p className="text-sm text-[#6B7280]">كود الجهاز</p>
-                            </div>
+                            <p className="text-sm text-[#6B7280]">كود الجهاز</p>
                             <p className="mt-2 text-lg font-semibold text-[#1F2937]">{data.code || "غير متوفر"}</p>
                           </motion.div>
                         </CardContent>
@@ -517,16 +508,16 @@ export default function FoundPhone() {
                             >
                               <Button
                                 asChild
-                                className="bg-gradient-to-r from-[#22C55E] to-[#16A34A] text-white hover:from-[#16A34A] hover:to-[#15803D] rounded-xl text-base font-medium shadow-md transition-all duration-200 hover:shadow-lg flex items-center gap-2 px-6 py-3 w-full sm:w-auto"
+                                className="bg-[#22C55E] text-white hover:bg-[#16A34A] rounded-xl text-base font-medium shadow-md transition-all duration-200 hover:shadow-lg flex items-center gap-2 px-6 py-3"
                                 size="lg"
                               >
                                 <a href={whatsappHref} target="_blank" rel="noreferrer noopener" className="flex items-center gap-2 px-6 py-3">
                                   <MessageCircle className="h-5 w-5" />
-                                  مراسلة واتساب
+                                  واتساب
                                 </a>
                               </Button>
                             </motion.div>
-                          )} 
+                          )}
                         </AnimatePresence>
                         
                         <AnimatePresence>
@@ -542,12 +533,12 @@ export default function FoundPhone() {
                             >
                               <Button
                                 asChild
-                                className="bg-gradient-to-r from-[#1565FF] to-[#0D47A1] text-white hover:from-[#0D47A1] hover:to-[#0A3871] rounded-xl text-base font-medium shadow-md transition-all duration-200 hover:shadow-lg flex items-center gap-2 px-6 py-3 w-full sm:w-auto"
+                                className="bg-[#2F80ED] text-white hover:bg-[#2563EB] rounded-xl text-base font-medium shadow-md transition-all duration-200 hover:shadow-lg flex items-center gap-2 px-6 py-3"
                                 size="lg"
                               >
                                 <a href={phoneHref} className="flex items-center gap-2 px-6 py-3">
                                   <Phone className="h-5 w-5" />
-                                  اتصل بالمالك
+                                  اتصل الآن
                                 </a>
                               </Button>
                             </motion.div>
@@ -591,39 +582,6 @@ export default function FoundPhone() {
                         جميـع البيانات المعروضة هدفها المساعدة في إعادة الهاتف إلى مالكه.
                       </motion.div>
                     </motion.div>
-
-                    <motion.div 
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.6 }}
-                      className="mt-6 rounded-[20px] border border-[#E5E7EB] bg-gradient-to-br from-white to-[#F9FAFB] p-8 shadow-lg shadow-[#E5E7EB] overflow-hidden relative"
-                    >
-                      <div className="flex items-center justify-between gap-3 text-right relative z-10">
-                        <div>
-                          <p className="text-sm uppercase tracking-[0.24em] text-[#6B7280] font-bold">تنبيه الخصوصية</p>
-                          <motion.h2 
-                            className="mt-3 text-2xl font-bold text-[#1F2937]"
-                            initial={{ y: 10, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: 0.7 }}
-                          >
-                            بياناتك محمية
-                          </motion.h2>
-                        </div>
-                        <div className="rounded-2xl bg-[#1565FF]/10 p-4 text-[#1565FF] shadow-md shadow-[#1565FF]/10 relative z-10">
-                          <Lock className="h-7 w-7" />
-                        </div>
-                      </div>
-
-                      <motion.div 
-                        className="mt-8 rounded-2xl border border-[#E5E7EB] bg-white p-6 text-right text-[#4B5563] shadow-sm shadow-[#E5E7EB] overflow-hidden relative z-10"
-                        initial={{ y: 10, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.8 }}
-                      >
-                        نحترم خصوصيتك ونلتزم بحماية جميع بياناتك الشخصية وفق أعلى معايير الأمان.
-                      </motion.div>
-                    </motion.div>
                   </div>
                 </div>
               </motion.div>
@@ -640,7 +598,7 @@ export default function FoundPhone() {
             {/* الخلفيات المتحركة */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <motion.div 
-                className="absolute -top-20 -right-20 w-40 h-40 bg-[#1565FF]/5 rounded-full blur-2xl"
+                className="absolute -top-20 -right-20 w-40 h-40 bg-[#2F80ED]/5 rounded-full blur-2xl"
                 animate={{ 
                   x: [0, 20, 0],
                   y: [0, -20, 0]
@@ -673,7 +631,7 @@ export default function FoundPhone() {
                 className="flex flex-col items-center sm:items-start text-center sm:text-left"
               >
                 <div className="flex flex-col items-center mb-6 p-4 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 shadow-sm w-full max-w-xs">
-                  <div className="flex items-center justify-center mb-3 p-2 rounded-xl bg-gradient-to-br from-[#1565FF] to-[#0D47A1] shadow-lg mb-3">
+                  <div className="flex items-center justify-center mb-3 p-2 rounded-xl bg-gradient-to-br from-[#2F80ED] to-[#2563EB] shadow-lg mb-3">
                     <Shield className="h-8 w-8 text-white" />
                   </div>
                   <div className="flex items-center space-x-2 mb-2">
@@ -702,23 +660,23 @@ export default function FoundPhone() {
                   <ul className="space-y-2 text-sm text-[#6B7280]">
                     {title === "روابط سريعة" && (
                       <>
-                        <li><a href="#" className="hover:text-[#1565FF] transition-colors">الرئيسية</a></li>
-                        <li><a href="#" className="hover:text-[#1565FF] transition-colors">كيف يعمل</a></li>
-                        <li><a href="#" className="hover:text-[#1565FF] transition-colors">الأسئلة الشائعة</a></li>
+                        <li><a href="#" className="hover:text-[#2F80ED] transition-colors">الرئيسية</a></li>
+                        <li><a href="#" className="hover:text-[#2F80ED] transition-colors">كيف يعمل</a></li>
+                        <li><a href="#" className="hover:text-[#2F80ED] transition-colors">الأسئلة الشائعة</a></li>
                       </>
                     )}
                     {title === "الدعم" && (
                       <>
-                        <li><a href="#" className="hover:text-[#1565FF] transition-colors">اتصل بنا</a></li>
-                        <li><a href="#" className="hover:text-[#1565FF] transition-colors">الشروط والأحكام</a></li>
-                        <li><a href="#" className="hover:text-[#1565FF] transition-colors">سياسة الخصوصية</a></li>
+                        <li><a href="#" className="hover:text-[#2F80ED] transition-colors">اتصل بنا</a></li>
+                        <li><a href="#" className="hover:text-[#2F80ED] transition-colors">الشروط والأحكام</a></li>
+                        <li><a href="#" className="hover:text-[#2F80ED] transition-colors">سياسة الخصوصية</a></li>
                       </>
                     )}
                     {title === "تواصل معنا" && (
                       <>
-                        <li><a href="#" className="hover:text-[#1565FF] transition-colors">support@imeisafe.com</a></li>
-                        <li><a href="#" className="hover:text-[#1565FF] transition-colors">+966 50 123 4567</a></li>
-                        <li><a href="#" className="hover:text-[#1565FF] transition-colors">الرياض، المملكة العربية السعودية</a></li>
+                        <li><a href="#" className="hover:text-[#2F80ED] transition-colors">support@imeisafe.com</a></li>
+                        <li><a href="#" className="hover:text-[#2F80ED] transition-colors">+966 50 123 4567</a></li>
+                        <li><a href="#" className="hover:text-[#2F80ED] transition-colors">الرياض، المملكة العربية السعودية</a></li>
                       </>
                     )}
                   </ul>
@@ -736,7 +694,7 @@ export default function FoundPhone() {
                     <motion.a 
                       key={index}
                       href="#" 
-                      className="h-12 w-12 rounded-full bg-[#1565FF]/10 flex items-center justify-center text-[#1565FF] hover:bg-[#1565FF]/20 transition-colors shadow-md hover:shadow-lg relative overflow-hidden group"
+                      className="h-12 w-12 rounded-full bg-[#2F80ED]/10 flex items-center justify-center text-[#2F80ED] hover:bg-[#2F80ED]/20 transition-colors shadow-md hover:shadow-lg relative overflow-hidden group"
                       whileHover={{ y: -3 }}
                       whileTap={{ scale: 0.95 }}
                       initial={{ opacity: 0, y: 10 }}
@@ -765,7 +723,7 @@ export default function FoundPhone() {
                         </svg>
                       )}
                       <motion.div 
-                        className="absolute inset-0 rounded-full bg-[#1565FF] opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+                        className="absolute inset-0 rounded-full bg-[#2F80ED] opacity-0 group-hover:opacity-10 transition-opacity duration-300"
                         initial={{ scale: 0.8 }}
                         whileHover={{ scale: 1.2 }}
                       />
@@ -776,7 +734,7 @@ export default function FoundPhone() {
             </div>
             <div className="container mx-auto mt-10 pt-8 border-t border-[#E5E7EB] text-center text-sm text-[#6B7280] relative overflow-hidden">
               <motion.div 
-                className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[#1565FF] to-transparent animate-pulse"
+                className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[#2F80ED] to-transparent animate-pulse"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1 }}
