@@ -97,12 +97,12 @@ export default function FoundPhone() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50 text-slate-900">
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md shadow-sm">
+      <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/50 backdrop-blur-md shadow-sm">
         <div className="container mx-auto px-4 py-2 flex justify-start">
           <motion.img
             src="/imei-logo-nobg.png"
             alt="شعار الأمان"
-            className="h-16 w-20"
+            className="h-14 w-22"
             whileHover={{ rotate: 5, scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           />
@@ -112,7 +112,7 @@ export default function FoundPhone() {
       <div className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-blue-100/30 to-transparent" />
         
-        <div className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col items-center px-4 py-12 lg:px-6">
+        <div className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col items-center px-4 py-6 lg:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
