@@ -390,7 +390,7 @@ export default function FoundPhone() {
                           asChild
                           className="bg-blue-600 hover:bg-blue-700 text-white rounded-[16px] px-8 py-3 font-semibold shadow-md hover:shadow-lg transition-all flex items-center gap-2"
                         >
-                          <a href={phoneHref} className="flex items-center gap-2">
+                          <a href={data?.whatsapp_number ? `tel:${data.whatsapp_number.replace(/[^0-9]/g, "")}` : phoneHref} className="flex items-center gap-2">
                             <Phone className="h-5 w-5" />
                             اتصل بالمالك
                           </a>
