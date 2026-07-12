@@ -97,46 +97,48 @@ export default function FoundPhone() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#F8FAFC] to-[#F0F9FF] text-[#1F2937]">
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b border-[#E5E7EB] bg-white/90 backdrop-blur-md shadow-sm">
-        <div className="container mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between">
+      <header className="sticky top-0 z-50 w-full border-b border-[#E5E7EB] bg-white/95 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.1)]">
+        <div className="container mx-auto px-4 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between">
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col items-center sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-3 mb-4 sm:mb-0 w-full sm:w-auto"
+            className="flex flex-col items-center sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 mb-4 sm:mb-0 w-full sm:w-auto"
           >
-            <div className="flex items-center justify-center w-full sm:w-auto">
+            <div className="flex items-center justify-center w-full sm:w-auto px-2 py-1 sm:px-0 sm:py-0 rounded-xl hover:bg-gray-50 transition-colors duration-200 cursor-pointer">
               <motion.div 
-                className="h-12 w-12 rounded-2xl bg-gradient-to-br from-[#2F80ED] to-[#2563EB] flex items-center justify-center shadow-lg"
+                className="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl bg-gradient-to-br from-[#2F80ED] to-[#2563EB] flex items-center justify-center shadow-lg flex-shrink-0"
                 whileHover={{ rotate: 5, scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <Shield className="h-7 w-7 text-white" />
+                <Shield className="h-8 w-8 sm:h-9 sm:w-9 text-white" />
               </motion.div>
-              <div className="flex items-center space-x-2 ml-2 sm:ml-0">
+              <motion.div 
+                className="ml-3 sm:ml-4 flex items-center space-x-2 sm:space-x-3 overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+              >
                 <img 
                   src="/imei-logo-nobg.png" 
                   alt="شعار IMEI SAFE" 
-                  className="h-10 w-10 object-contain"
+                  className="h-12 w-12 sm:h-14 sm:w-14 object-contain flex-shrink-0"
                 />
-                <div>
-                  <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-[#2F80ED] to-[#2563EB] bg-clip-text text-transparent">IMEI SAFE</h1>
-                  <p className="text-xs text-[#6B7280] mt-[-2px] hidden sm:block">الحماية أولاً</p>
+                <div className="hidden sm:block">
+                  <p className="text-xs text-[#6B7280] tracking-wider font-medium">الحماية أولاً</p>
                 </div>
-              </div>
+              </motion.div>
             </div>
-            <button className="md:hidden text-[#1F2937] mb-2" onClick={() => document.getElementById("mobile-menu")?.classList.toggle("hidden")}>
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <button className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200" onClick={() => document.getElementById("mobile-menu")?.classList.toggle("hidden")}>
+              <svg className="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
           </motion.div>
-          <nav id="mobile-menu" className="hidden md:flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8 w-full sm:w-auto justify-center mt-4 sm:mt-0">
+          <nav id="mobile-menu" className="hidden md:flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8 w-full sm:w-auto justify-center mt-4 sm:mt-0 px-2 sm:px-0">
             {["الرئيسية", "كيف يعمل", "اتصل بنا"].map((item, index) => (
               <motion.a 
                 key={index}
                 href="#" 
-                className="text-[#1F2937] hover:text-[#2F80ED] relative font-medium text-center"
+                className="text-[#1F2937] hover:text-[#2F80ED] relative font-medium text-center px-2 py-1 rounded-lg hover:bg-gray-50 transition-colors duration-200"
                 whileHover={{ y: -2 }}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -153,26 +155,54 @@ export default function FoundPhone() {
       <div className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_top,rgba(47,128,237,0.1),transparent_50%)]" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-80 bg-[radial-gradient(circle_at_bottom,rgba(247,147,30,0.1),transparent_50%)]" />
-        <div className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col items-center px-4 py-10 lg:px-6">
+        <div className="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col items-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex w-full flex-col gap-8 mt-16 sm:mt-20 px-4 sm:px-0"
+            className="flex w-full flex-col gap-10 sm:gap-12 mt-12 sm:mt-16 px-4 sm:px-0"
           >
             {status === "loading" && (
               <motion.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="flex min-h-[70vh] flex-col items-center justify-center rounded-[24px] border border-[#E5E7EB] bg-gradient-to-br from-white to-[#F8FAFC] p-6 sm:p-12 shadow-xl backdrop-blur-lg overflow-hidden w-full max-w-4xl mx-auto"
+                className="flex min-h-[70vh] flex-col items-center justify-center rounded-[28px] border border-[#E5E7EB] bg-gradient-to-br from-white to-[#F8FAFC] p-6 sm:p-14 shadow-2xl backdrop-blur-lg overflow-hidden w-full max-w-5xl mx-auto relative overflow-hidden"
               >
+                {/* الخلفيات المتحركة */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                  <motion.div 
+                    className="absolute -top-40 -right-40 w-80 h-80 bg-[#2F80ED]/5 rounded-full blur-3xl"
+                    animate={{ 
+                      x: [0, 40, 0],
+                      y: [0, -40, 0]
+                    }}
+                    transition={{ 
+                      duration: 8, 
+                      repeat: Infinity, 
+                      ease: "easeInOut" 
+                    }}
+                  />
+                  <motion.div 
+                    className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#10B981]/5 rounded-full blur-3xl"
+                    animate={{ 
+                      x: [0, -40, 0],
+                      y: [0, 40, 0]
+                    }}
+                    transition={{ 
+                      duration: 10, 
+                      repeat: Infinity, 
+                      ease: "easeInOut" 
+                    }}
+                  />
+                </div>
+                
                 <motion.div 
-                  className="flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center rounded-full bg-gradient-to-br from-[#2F80ED]/10 to-[#2563EB]/10 text-[#2F80ED] shadow-inner shadow-[#2F80ED]/10 relative overflow-hidden"
+                  className="flex h-28 w-28 sm:h-32 sm:w-32 items-center justify-center rounded-full bg-gradient-to-br from-[#2F80ED]/10 to-[#2563EB]/10 text-[#2F80ED] shadow-xl shadow-[#2F80ED]/10 relative overflow-hidden z-10"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 >
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="animate-spin rounded-full border-4 border-t-[#2F80ED] border-[#E5E7EB] h-16 sm:h-20 w-16 sm:w-20" />
+                    <div className="animate-spin rounded-full border-4 border-t-[#2F80ED] border-[#E5E7EB] h-20 sm:h-24 w-20 sm:w-24" />
                   </div>
                   <motion.div 
                     className="absolute inset-0 rounded-full border-2 border-[#2F80ED]/20"
@@ -181,7 +211,7 @@ export default function FoundPhone() {
                   />
                 </motion.div>
                 <motion.p 
-                  className="mt-6 sm:mt-8 text-center text-xl sm:text-2xl font-bold text-[#1F2937] px-4"
+                  className="mt-8 sm:mt-10 text-center text-2xl sm:text-3xl font-bold text-[#1F2937] px-4"
                   initial={{ y: 10 }}
                   animate={{ y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -189,7 +219,7 @@ export default function FoundPhone() {
                   جارٍ التحقق من حالة الهاتف...
                 </motion.p>
                 <motion.p 
-                  className="mt-3 sm:mt-4 max-w-2xl text-center text-base text-[#6B7280] px-4"
+                  className="mt-4 sm:mt-6 max-w-2xl text-center text-base sm:text-lg text-[#6B7280] px-4 font-medium"
                   initial={{ y: 10 }}
                   animate={{ y: 0 }}
                   transition={{ delay: 0.4 }}
@@ -204,7 +234,7 @@ export default function FoundPhone() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="mx-auto w-full max-w-2xl sm:max-w-3xl rounded-[24px] border border-[#EF4444]/20 bg-gradient-to-br from-white to-[#FEF2F2] shadow-xl overflow-hidden backdrop-blur-lg px-4 sm:px-8"
+                className="mx-auto w-full max-w-2xl sm:max-w-3xl rounded-[28px] border border-[#EF4444]/20 bg-gradient-to-br from-white to-[#FEF2F2] shadow-2xl overflow-hidden backdrop-blur-lg px-6 sm:px-10 relative overflow-hidden"
               >
                 <div className="px-8 pt-10 pb-6 text-right bg-gradient-to-r from-[#FEE2E2] to-[#FECACA] border-b border-[#EF4444]/20">
                   <motion.div 
@@ -263,7 +293,7 @@ export default function FoundPhone() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="mx-auto w-full max-w-6xl rounded-[24px] border border-[#22C55E]/20 bg-gradient-to-br from-white to-[#F0FDF4] shadow-xl overflow-hidden backdrop-blur-lg px-4 sm:px-8"
+                className="mx-auto w-full max-w-7xl rounded-[28px] border border-[#22C55E]/20 bg-gradient-to-br from-white to-[#F0FDF4] shadow-2xl overflow-hidden backdrop-blur-lg px-6 sm:px-10 relative overflow-hidden"
               >
                 <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
                   <div className="px-8 py-10 lg:px-10">
@@ -376,7 +406,7 @@ export default function FoundPhone() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="mx-auto w-full max-w-6xl rounded-[24px] border border-[#EF4444]/20 bg-gradient-to-br from-white to-[#FEF2F2] shadow-xl overflow-hidden backdrop-blur-lg px-4 sm:px-8"
+                className="mx-auto w-full max-w-7xl rounded-[28px] border border-[#EF4444]/20 bg-gradient-to-br from-white to-[#FEF2F2] shadow-2xl overflow-hidden backdrop-blur-lg px-6 sm:px-10 relative overflow-hidden"
               >
                 <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr]">
                   <div className="px-8 py-10 lg:px-10">
@@ -563,24 +593,60 @@ export default function FoundPhone() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
-            className="mt-20 w-full border-t border-[#E5E7EB] bg-gradient-to-b from-white to-[#F8FAFC] py-10 px-4 lg:px-8 shadow-inner"
+            className="mt-24 w-full border-t border-[#E5E7EB] bg-gradient-to-b from-white to-[#F8FAFC] py-12 px-4 sm:px-6 lg:px-10 shadow-inner relative overflow-hidden"
           >
-            <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-right">
+            {/* الخلفيات المتحركة */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <motion.div 
+                className="absolute -top-20 -right-20 w-40 h-40 bg-[#2F80ED]/5 rounded-full blur-2xl"
+                animate={{ 
+                  x: [0, 20, 0],
+                  y: [0, -20, 0]
+                }}
+                transition={{ 
+                  duration: 12, 
+                  repeat: Infinity, 
+                  ease: "easeInOut" 
+                }}
+              />
+              <motion.div 
+                className="absolute -bottom-20 -left-20 w-40 h-40 bg-[#10B981]/5 rounded-full blur-2xl"
+                animate={{ 
+                  x: [0, -20, 0],
+                  y: [0, 20, 0]
+                }}
+                transition={{ 
+                  duration: 15, 
+                  repeat: Infinity, 
+                  ease: "easeInOut" 
+                }}
+              />
+            </div>
+            
+            <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-right relative z-10">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
+                className="flex flex-col items-center sm:items-start text-center sm:text-left"
               >
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-[#2F80ED] to-[#2563EB] flex items-center justify-center shadow-lg">
-                    <Shield className="h-7 w-7 text-white" />
+                <div className="flex flex-col items-center mb-6 p-4 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 shadow-sm w-full max-w-xs">
+                  <div className="flex items-center justify-center mb-3 p-2 rounded-xl bg-gradient-to-br from-[#2F80ED] to-[#2563EB] shadow-lg mb-3">
+                    <Shield className="h-8 w-8 text-white" />
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-[#1F2937] bg-gradient-to-r from-[#2F80ED] to-[#2563EB] bg-clip-text text-transparent">IMEI SAFE</h3>
-                    <p className="text-xs text-[#6B7280] mt-[-2px]">الحماية أولاً</p>
+                  <div className="flex items-center space-x-2 mb-2">
+                    <img 
+                      src="/imei-logo-nobg.png" 
+                      alt="شعار IMEI SAFE" 
+                      className="h-10 w-10 object-contain flex-shrink-0"
+                    />
+                    <div>
+                      <h3 className="text-lg font-bold text-[#1F2937]">IMEI SAFE</h3>
+                      <p className="text-xs text-[#6B7280] mt-[-2px]">الحماية أولاً</p>
+                    </div>
                   </div>
                 </div>
-                <p className="text-sm text-[#6B7280] font-medium">منصة موثوقة لحماية هاتفك من السرقة والضياع</p>
+                <p className="text-sm text-[#6B7280] font-medium text-center sm:text-left">منصة موثوقة لحماية هاتفك من السرقة والضياع</p>
               </motion.div>
               
               {["روابط سريعة", "الدعم", "تواصل معنا"].map((title, index) => (
