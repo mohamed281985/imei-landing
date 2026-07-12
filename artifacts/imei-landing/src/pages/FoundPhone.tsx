@@ -98,23 +98,23 @@ export default function FoundPhone() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50 text-slate-900">
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md shadow-sm">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="container mx-auto px-4 py-4 flex justify-center">
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="flex items-center gap-3"
           >
-            <motion.div 
-              className="h-12 w-12 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center shadow-lg"
+            <motion.img
+              src="/imei-logo-nobg.png"
+              alt="شعار الأمان"
+              className="h-12 w-12 rounded-2xl bg-white p-2 shadow-lg"
               whileHover={{ rotate: 5, scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
-              <Shield className="h-6 w-6 text-white" />
-            </motion.div>
-            <div>
-              <h1 className="text-2xl font-bold text-slate-900">IMEI SAFE</h1>
-              <p className="text-xs text-slate-500">الحماية والأمان</p>
+            />
+            <div className="text-center">
+              <h1 className="text-3xl font-bold text-slate-900">نتأكد معا من أمان أجهزتك</h1>
+              <p className="text-sm text-slate-500">منصة موثوقة لحماية الأجهزة من الفقد أو السرقة</p>
             </div>
           </motion.div>
         </div>
@@ -220,9 +220,9 @@ export default function FoundPhone() {
                   transition={{ delay: 0.2 }}
                   className="rounded-[24px] border border-green-200 bg-white shadow-lg overflow-hidden mb-8"
                 >
-                  <div className="px-8 py-12 text-right bg-gradient-to-br from-green-50 to-emerald-50 border-b border-green-200">
+                  <div className="px-8 py-12 text-center bg-gradient-to-br from-green-50 to-emerald-50 border-b border-green-200">
                     <motion.div 
-                      className="flex justify-end mb-6"
+                      className="flex justify-center mb-6"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ delay: 0.3, type: "spring", stiffness: 300 }}
@@ -323,9 +323,9 @@ export default function FoundPhone() {
                   transition={{ delay: 0.2 }}
                   className="rounded-[24px] border border-red-200 bg-white shadow-lg overflow-hidden mb-8"
                 >
-                  <div className="px-8 py-12 text-right bg-gradient-to-br from-red-50 to-orange-50 border-b border-red-200">
+                  <div className="px-8 py-12 text-center bg-gradient-to-br from-red-50 to-orange-50 border-b border-red-200">
                     <motion.div 
-                      className="flex justify-end mb-6"
+                      className="flex justify-center mb-6"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ delay: 0.3, type: "spring", stiffness: 300 }}
