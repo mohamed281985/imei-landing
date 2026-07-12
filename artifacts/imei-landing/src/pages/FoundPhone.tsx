@@ -94,82 +94,71 @@ export default function FoundPhone() {
     return `tel:${data.phone}`;
   }, [data]);
 
-  const handleRetry = () => {
-    window.location.reload();
-  };
-
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
-      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-xl shadow-sm">
-        <div className="container mx-auto flex flex-wrap items-center justify-between gap-4 px-4 py-4">
-          <a href="/" className="flex items-center gap-3 rounded-3xl px-3 py-2 transition hover:bg-slate-100">
-            <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-gradient-to-br from-sky-600 to-indigo-600 text-white shadow-lg">
-              <Shield className="h-6 w-6" />
+    <div className="min-h-screen bg-gradient-to-br from-[#F8FAFC] to-[#F0F9FF] text-[#1F2937]">
+      {/* Header */}
+      <header className="sticky top-0 z-50 w-full border-b border-[#E5E7EB] bg-white/90 backdrop-blur-md shadow-sm">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center space-x-3"
+          >
+            <motion.div 
+              className="h-12 w-12 rounded-2xl bg-gradient-to-br from-[#2F80ED] to-[#2563EB] flex items-center justify-center shadow-lg"
+              whileHover={{ rotate: 5, scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <Shield className="h-7 w-7 text-white" />
+            </motion.div>
+            <div>
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-[#2F80ED] to-[#2563EB] bg-clip-text text-transparent">IMEI SAFE</h1>
+              <p className="text-xs text-[#6B7280] mt-[-2px]">الحماية أولاً</p>
             </div>
-            <div className="hidden sm:block">
-              <p className="text-sm font-semibold tracking-[0.2em] text-slate-900">IMEI SAFE</p>
-              <p className="text-xs text-slate-500">الحماية أولاً</p>
-            </div>
-          </a>
-
-          <div className="flex flex-wrap items-center gap-4 text-sm text-slate-600">
-            <a href="#" className="transition hover:text-slate-900">المساعدة</a>
-            <a href="#" className="transition hover:text-slate-900">اتصل بنا</a>
-          </div>
+          </motion.div>
+          <nav className="hidden md:flex space-x-8">
+            {["الرئيسية", "كيف يعمل", "اتصل بنا"].map((item, index) => (
+              <motion.a 
+                key={index}
+                href="#" 
+                className="text-[#1F2937] hover:text-[#2F80ED] relative font-medium"
+                whileHover={{ y: -2 }}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                {item}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2F80ED] transition-all duration-300 group-hover:w-full"></span>
+              </motion.a>
+            ))}
+          </nav>
         </div>
       </header>
 
       <div className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_top,rgba(47,128,237,0.1),transparent_50%)]" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-80 bg-[radial-gradient(circle_at_bottom,rgba(247,147,30,0.1),transparent_50%)]" />
-        <div className="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col items-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+        <div className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col items-center px-4 py-10 lg:px-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex w-full flex-col gap-10 sm:gap-12 mt-12 sm:mt-16 px-4 sm:px-0"
+            className="flex w-full flex-col gap-8 mt-20"
           >
             {status === "loading" && (
               <motion.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="flex min-h-[70vh] flex-col items-center justify-center rounded-[28px] border border-[#E5E7EB] bg-gradient-to-br from-white to-[#F8FAFC] p-6 sm:p-14 shadow-2xl backdrop-blur-lg overflow-hidden w-full max-w-5xl mx-auto relative overflow-hidden"
+                className="flex min-h-[70vh] flex-col items-center justify-center rounded-[24px] border border-[#E5E7EB] bg-gradient-to-br from-white to-[#F8FAFC] p-12 shadow-xl backdrop-blur-lg overflow-hidden"
               >
-                {/* الخلفيات المتحركة */}
-                <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                  <motion.div 
-                    className="absolute -top-40 -right-40 w-80 h-80 bg-[#2F80ED]/5 rounded-full blur-3xl"
-                    animate={{ 
-                      x: [0, 40, 0],
-                      y: [0, -40, 0]
-                    }}
-                    transition={{ 
-                      duration: 8, 
-                      repeat: Infinity, 
-                      ease: "easeInOut" 
-                    }}
-                  />
-                  <motion.div 
-                    className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#10B981]/5 rounded-full blur-3xl"
-                    animate={{ 
-                      x: [0, -40, 0],
-                      y: [0, 40, 0]
-                    }}
-                    transition={{ 
-                      duration: 10, 
-                      repeat: Infinity, 
-                      ease: "easeInOut" 
-                    }}
-                  />
-                </div>
-                
                 <motion.div 
-                  className="flex h-28 w-28 sm:h-32 sm:w-32 items-center justify-center rounded-full bg-gradient-to-br from-[#2F80ED]/10 to-[#2563EB]/10 text-[#2F80ED] shadow-xl shadow-[#2F80ED]/10 relative overflow-hidden z-10"
+                  className="flex h-28 w-28 items-center justify-center rounded-full bg-gradient-to-br from-[#2F80ED]/10 to-[#2563EB]/10 text-[#2F80ED] shadow-inner shadow-[#2F80ED]/10 relative overflow-hidden"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 >
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="animate-spin rounded-full border-4 border-t-[#2F80ED] border-[#E5E7EB] h-20 sm:h-24 w-20 sm:w-24" />
+                    <div className="animate-spin rounded-full border-4 border-t-[#2F80ED] border-[#E5E7EB] h-20 w-20" />
                   </div>
                   <motion.div 
                     className="absolute inset-0 rounded-full border-2 border-[#2F80ED]/20"
@@ -178,7 +167,7 @@ export default function FoundPhone() {
                   />
                 </motion.div>
                 <motion.p 
-                  className="mt-8 sm:mt-10 text-center text-2xl sm:text-3xl font-bold text-[#1F2937] px-4"
+                  className="mt-8 text-center text-2xl font-bold text-[#1F2937]"
                   initial={{ y: 10 }}
                   animate={{ y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -186,7 +175,7 @@ export default function FoundPhone() {
                   جارٍ التحقق من حالة الهاتف...
                 </motion.p>
                 <motion.p 
-                  className="mt-4 sm:mt-6 max-w-2xl text-center text-base sm:text-lg text-[#6B7280] px-4 font-medium"
+                  className="mt-4 max-w-2xl text-center text-base text-[#6B7280]"
                   initial={{ y: 10 }}
                   animate={{ y: 0 }}
                   transition={{ delay: 0.4 }}
@@ -201,7 +190,7 @@ export default function FoundPhone() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="mx-auto w-full max-w-2xl sm:max-w-3xl rounded-[28px] border border-[#EF4444]/20 bg-gradient-to-br from-white to-[#FEF2F2] shadow-2xl overflow-hidden backdrop-blur-lg px-6 sm:px-10 relative overflow-hidden"
+                className="mx-auto w-full max-w-2xl rounded-[24px] border border-[#EF4444]/20 bg-gradient-to-br from-white to-[#FEF2F2] shadow-xl overflow-hidden backdrop-blur-lg"
               >
                 <div className="px-8 pt-10 pb-6 text-right bg-gradient-to-r from-[#FEE2E2] to-[#FECACA] border-b border-[#EF4444]/20">
                   <motion.div 
@@ -260,7 +249,7 @@ export default function FoundPhone() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="mx-auto w-full max-w-7xl rounded-[28px] border border-[#22C55E]/20 bg-gradient-to-br from-white to-[#F0FDF4] shadow-2xl overflow-hidden backdrop-blur-lg px-6 sm:px-10 relative overflow-hidden"
+                className="mx-auto w-full max-w-6xl rounded-[24px] border border-[#22C55E]/20 bg-gradient-to-br from-white to-[#F0FDF4] shadow-xl overflow-hidden backdrop-blur-lg"
               >
                 <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
                   <div className="px-8 py-10 lg:px-10">
@@ -373,7 +362,7 @@ export default function FoundPhone() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="mx-auto w-full max-w-7xl rounded-[28px] border border-[#EF4444]/20 bg-gradient-to-br from-white to-[#FEF2F2] shadow-2xl overflow-hidden backdrop-blur-lg px-6 sm:px-10 relative overflow-hidden"
+                className="mx-auto w-full max-w-6xl rounded-[24px] border border-[#EF4444]/20 bg-gradient-to-br from-white to-[#FEF2F2] shadow-xl overflow-hidden backdrop-blur-lg"
               >
                 <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr]">
                   <div className="px-8 py-10 lg:px-10">
@@ -560,60 +549,24 @@ export default function FoundPhone() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
-            className="mt-24 w-full border-t border-[#E5E7EB] bg-gradient-to-b from-white to-[#F8FAFC] py-12 px-4 sm:px-6 lg:px-10 shadow-inner relative overflow-hidden"
+            className="mt-20 w-full border-t border-[#E5E7EB] bg-gradient-to-b from-white to-[#F8FAFC] py-10 px-4 lg:px-8 shadow-inner"
           >
-            {/* الخلفيات المتحركة */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <motion.div 
-                className="absolute -top-20 -right-20 w-40 h-40 bg-[#2F80ED]/5 rounded-full blur-2xl"
-                animate={{ 
-                  x: [0, 20, 0],
-                  y: [0, -20, 0]
-                }}
-                transition={{ 
-                  duration: 12, 
-                  repeat: Infinity, 
-                  ease: "easeInOut" 
-                }}
-              />
-              <motion.div 
-                className="absolute -bottom-20 -left-20 w-40 h-40 bg-[#10B981]/5 rounded-full blur-2xl"
-                animate={{ 
-                  x: [0, -20, 0],
-                  y: [0, 20, 0]
-                }}
-                transition={{ 
-                  duration: 15, 
-                  repeat: Infinity, 
-                  ease: "easeInOut" 
-                }}
-              />
-            </div>
-            
-            <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-right relative z-10">
+            <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-right">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="flex flex-col items-center sm:items-start text-center sm:text-left"
               >
-                <div className="flex flex-col items-center mb-6 p-4 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 shadow-sm w-full max-w-xs">
-                  <div className="flex items-center justify-center mb-3 p-2 rounded-xl bg-gradient-to-br from-[#2F80ED] to-[#2563EB] shadow-lg mb-3">
-                    <Shield className="h-8 w-8 text-white" />
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-[#2F80ED] to-[#2563EB] flex items-center justify-center shadow-lg">
+                    <Shield className="h-7 w-7 text-white" />
                   </div>
-                  <div className="flex items-center space-x-2 mb-2">
-                    <img 
-                      src="/imei-logo-nobg.png" 
-                      alt="شعار IMEI SAFE" 
-                      className="h-10 w-10 object-contain flex-shrink-0"
-                    />
-                    <div>
-                      <h3 className="text-lg font-bold text-[#1F2937]">IMEI SAFE</h3>
-                      <p className="text-xs text-[#6B7280] mt-[-2px]">الحماية أولاً</p>
-                    </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-[#1F2937] bg-gradient-to-r from-[#2F80ED] to-[#2563EB] bg-clip-text text-transparent">IMEI SAFE</h3>
+                    <p className="text-xs text-[#6B7280] mt-[-2px]">الحماية أولاً</p>
                   </div>
                 </div>
-                <p className="text-sm text-[#6B7280] font-medium text-center sm:text-left">منصة موثوقة لحماية هاتفك من السرقة والضياع</p>
+                <p className="text-sm text-[#6B7280] font-medium">منصة موثوقة لحماية هاتفك من السرقة والضياع</p>
               </motion.div>
               
               {["روابط سريعة", "الدعم", "تواصل معنا"].map((title, index) => (
@@ -721,4 +674,3 @@ export default function FoundPhone() {
     </div>
   );
 }
-
