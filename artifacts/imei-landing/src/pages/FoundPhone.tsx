@@ -97,12 +97,12 @@ export default function FoundPhone() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50 text-slate-900">
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/50 backdrop-blur-md shadow-sm">
+      <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/70 backdrop-blur-md shadow-sm">
         <div className="container mx-auto px-4 py-2 flex justify-start">
           <motion.img
             src="/imei-logo-nobg.png"
             alt="شعار الأمان"
-            className="h-14 w-22"
+            className="h-14 w-24"
             whileHover={{ rotate: 5, scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           />
@@ -117,7 +117,7 @@ export default function FoundPhone() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex w-full flex-col gap-8 mt-8"
+            className="flex w-full flex-col gap-8 mt-1"
           >
             <div className="w-full text-center">
               <h1 className="text-3xl font-bold text-slate-900">نتأكد معا من أمان أجهزتك</h1>
