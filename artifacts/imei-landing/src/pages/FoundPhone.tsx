@@ -346,47 +346,7 @@ export default function FoundPhone() {
                   </div>
                 </motion.div>
 
-                {/* Owner Info Card */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="rounded-[24px] border border-slate-200 bg-white shadow-lg p-8 mb-8"
-                >
-                  <h3 className="text-lg font-semibold text-slate-900 mb-6 text-right flex items-center justify-end gap-2">
-                    <AlertTriangle className="h-5 w-5 text-red-600" />
-                    معلومات المالك
-                  </h3>
-                  <div className="grid gap-4 sm:grid-cols-3">
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.5 }}
-                      className="text-right rounded-[16px] bg-slate-50 p-6 border border-slate-200"
-                    >
-                      <p className="text-sm text-slate-600 font-medium">اسم المالك</p>
-                      <p className="mt-2 text-lg font-bold text-slate-900">{data.owner_name || "غير متوفر"}</p>
-                    </motion.div>
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.6 }}
-                      className="text-right rounded-[16px] bg-slate-50 p-6 border border-slate-200"
-                    >
-                      <p className="text-sm text-slate-600 font-medium">رقم الهاتف</p>
-                      <p className="mt-2 text-lg font-bold text-slate-900">{data.phone || "غير متوفر"}</p>
-                    </motion.div>
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.7 }}
-                      className="text-right rounded-[16px] bg-slate-50 p-6 border border-slate-200"
-                    >
-                      <p className="text-sm text-slate-600 font-medium">رمز الجهاز</p>
-                      <p className="mt-2 text-lg font-bold text-slate-900">{data.code || "غير متوفر"}</p>
-                    </motion.div>
-                  </div>
-                </motion.div>
+                
 
                 {/* Action Buttons */}
                 <motion.div 
