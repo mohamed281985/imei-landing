@@ -99,24 +99,13 @@ export default function FoundPhone() {
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md shadow-sm">
         <div className="container mx-auto px-4 py-4 flex justify-center">
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center gap-3"
-          >
-            <motion.img
-              src="/imei-logo-nobg.png"
-              alt="شعار الأمان"
-              className="h-12 w-12 rounded-2xl bg-white p-2 shadow-lg"
-              whileHover={{ rotate: 5, scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            />
-            <div className="text-center">
-              <h1 className="text-3xl font-bold text-slate-900">نتأكد معا من أمان أجهزتك</h1>
-              <p className="text-sm text-slate-500">منصة موثوقة لحماية الأجهزة من الفقد أو السرقة</p>
-            </div>
-          </motion.div>
+          <motion.img
+            src="/imei-logo-nobg.png"
+            alt="شعار الأمان"
+            className="h-12 w-12"
+            whileHover={{ rotate: 5, scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          />
         </div>
       </header>
 
@@ -130,6 +119,10 @@ export default function FoundPhone() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="flex w-full flex-col gap-8 mt-8"
           >
+            <div className="w-full text-center">
+              <h1 className="text-3xl font-bold text-slate-900">نتأكد معا من أمان أجهزتك</h1>
+              <p className="mt-2 text-sm text-slate-500">منصة موثوقة لحماية الأجهزة من الفقد أو السرقة</p>
+            </div>
             {/* LOADING STATE */}
             {status === "loading" && (
               <motion.div 
