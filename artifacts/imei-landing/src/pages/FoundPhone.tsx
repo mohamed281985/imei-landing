@@ -98,11 +98,11 @@ export default function FoundPhone() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50 text-slate-900">
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md shadow-sm">
-        <div className="container mx-auto px-4 py-4 flex justify-center">
+        <div className="container mx-auto px-4 py-4 flex justify-start">
           <motion.img
             src="/imei-logo-nobg.png"
             alt="شعار الأمان"
-            className="h-12 w-12"
+            className="h-16 w-16"
             whileHover={{ rotate: 5, scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           />
