@@ -11,7 +11,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import Image from "next/image";
 
 interface FoundResponse {
   success: boolean;
@@ -115,11 +114,9 @@ export default function FoundPhone() {
                 <Shield className="h-7 w-7 text-white" />
               </motion.div>
               <div className="flex items-center space-x-2 ml-2 sm:ml-0">
-                <Image 
+                <img 
                   src="/imei-logo-nobg.png" 
                   alt="شعار IMEI SAFE" 
-                  width={40} 
-                  height={40} 
                   className="h-10 w-10 object-contain"
                 />
                 <div>
