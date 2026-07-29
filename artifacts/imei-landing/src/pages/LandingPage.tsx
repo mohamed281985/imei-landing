@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-
+import heroPhones from "@/assets/images/hero-phones.png";
 // Assets — logo uses public/ path (background already removed)
 const imeiLogo = "/imei-logo-nobg.png";
 import splash from "@assets/Screenshot_٢٠٢٦٠٦١١_١٥١١٤٧_1781269330762.jpg";
@@ -242,106 +242,163 @@ export default function LandingPage() {
               </motion.div>
             </motion.div>
 
-            {/* ══════════ PHONES COLUMN (left in RTL) ══════════ */}
-            <div className="flex justify-center md:justify-start order-1 md:order-2 relative" dir="ltr">
+          <div className="flex justify-center md:justify-start order-1 md:order-2 relative">
+  <motion.img
+    src={heroPhones}
+    alt="IMEI Safe"
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: [0, -10, 0] }}
+    transition={{
+      opacity: { duration: 0.8 },
+      y: {
+        duration: 6,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    }}
+    className="w-full max-w-[620px] h-auto drop-shadow-2xl relative z-10"
+  />
+  
+  {/* الإشعار الأول: التحقق من الهاتف */}
+  <motion.div
+    initial={{ opacity: 0, x: 15, y: 10 }}
+    animate={{ 
+      opacity: [0, 1, 1, 0],
+      x: [15, 0, 0, -15],
+      y: [10, 0, 0, -10]
+    }}
+    transition={{ 
+      duration: 4, 
+      repeat: Infinity,
+      repeatDelay: 2,
+      times: [0, 0.1, 0.8, 1]
+    }}
+    className="absolute top-[8%] right-[20%] md:top-[12%] md:right-[15%] lg:top-[15%] lg:right-[10%] bg-white rounded-md shadow-sm p-1 md:p-1.5 z-20 w-[28vw] md:w-[22vw] lg:w-[140px]"
+  >
+    <div className="flex items-center gap-1">
+      <div className="w-4 h-4 md:w-5 md:h-5 lg:w-5 lg:h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+        <Check className="w-2 h-2 md:w-2.5 md:h-2.5 lg:w-2.5 lg:h-2.5 text-green-600" />
+      </div>
+      <div>
+        <p className="text-[6px] md:text-[7px] lg:text-[8px] text-gray-500">تم التحقق</p>
+        <p className="text-[8px] md:text-[9px] lg:text-[10px] font-bold text-gray-800">الهاتف آمن</p>
+      </div>
+    </div>
+  </motion.div>
 
-              {/* Mobile & Desktop: two phones + 5 floating glassmorphism cards */}
-              <div
-                className="relative mx-auto w-full"
-                style={{
-                  maxWidth: "565px",
-                  aspectRatio: "565/605",
-                  transform: "scale(1)",
-                  transformOrigin: "center center"
-                }}
-              >
-                {/* Blue glow behind front phone */}
-                <div style={{
-                  position: "absolute", top: "13%", left: "16%",
-                  width: "46%", height: "43%", borderRadius: "50%",
-                  background: "radial-gradient(circle,rgba(37,99,235,0.25) 0%,transparent 70%)",
-                  filter: "blur(48px)", zIndex: 1,
-                }} />
-                {/* Orange glow behind back phone */}
-                <div style={{
-                  position: "absolute", top: "16%", left: "50%",
-                  width: "35%", height: "33%", borderRadius: "50%",
-                  background: "radial-gradient(circle,rgba(255,138,0,0.20) 0%,transparent 70%)",
-                  filter: "blur(40px)", zIndex: 1,
-                }} />
+  {/* الإشعار الثاني: تسجيل الجهاز */}
+  <motion.div
+    initial={{ opacity: 0, x: -15, y: 10 }}
+    animate={{ 
+      opacity: [0, 1, 1, 0],
+      x: [-15, 0, 0, 15],
+      y: [10, 0, 0, -10]
+    }}
+    transition={{ 
+      duration: 4, 
+      repeat: Infinity,
+      repeatDelay: 2,
+      delay: 1.5,
+      times: [0, 0.1, 0.8, 1]
+    }}
+    className="absolute bottom-[35%] left-[20%] md:bottom-[40%] md:left-[15%] lg:bottom-[45%] lg:left-[10%] bg-white rounded-md shadow-sm p-1 md:p-1.5 z-20 w-[28vw] md:w-[22vw] lg:w-[140px]"
+  >
+    <div className="flex items-center gap-1">
+      <div className="w-4 h-4 md:w-5 md:h-5 lg:w-5 lg:h-5 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+        <Shield className="w-2 h-2 md:w-2.5 md:h-2.5 lg:w-2.5 lg:h-2.5 text-blue-600" />
+      </div>
+      <div>
+        <p className="text-[6px] md:text-[7px] lg:text-[8px] text-gray-500">حماية</p>
+        <p className="text-[8px] md:text-[9px] lg:text-[10px] font-bold text-gray-800">تم تسجيل الجهاز</p>
+      </div>
+    </div>
+  </motion.div>
 
-                {/* ── BACK PHONE ── */}
-                <div style={{
-                  position: "absolute", top: "10%", left: "53%",
-                  width: "34%", zIndex: 10,
-                  transform: "perspective(1000px) rotateY(-13deg) rotateX(6deg)",
-                }}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: [0, -11, 0] }}
-                    transition={{ opacity: { duration: 0.8, delay: 0.4 }, y: { delay: 0.4, duration: 7, repeat: Infinity, ease: "easeInOut", times: [0, 0.5, 1] } }}
-                    style={{ borderRadius: "36px", overflow: "hidden", border: "7px solid white", boxShadow: "0 40px 80px rgba(255,138,0,0.18),0 20px 40px rgba(0,0,0,0.12)" }}
-                  >
-                    <img src={homeScreen} alt="IMEI Results" className="w-full h-auto block" />
-                  </motion.div>
-                </div>
+  {/* الإشعار الثالث: إرسال إشعار */}
+  <motion.div
+    initial={{ opacity: 0, x: 15, y: -10 }}
+    animate={{ 
+      opacity: [0, 1, 1, 0],
+      x: [15, 0, 0, -15],
+      y: [-10, 0, 0, 10]
+    }}
+    transition={{ 
+      duration: 4, 
+      repeat: Infinity,
+      repeatDelay: 2,
+      delay: 3,
+      times: [0, 0.1, 0.8, 1]
+    }}
+    className="absolute top-[50%] right-[15%] md:top-[55%] md:right-[10%] lg:top-[60%] lg:right-[5%] bg-white rounded-md shadow-sm p-1 md:p-1.5 z-20 w-[28vw] md:w-[22vw] lg:w-[140px]"
+  >
+    <div className="flex items-center gap-1">
+      <div className="w-4 h-4 md:w-5 md:h-5 lg:w-5 lg:h-5 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0">
+        <Bell className="w-2 h-2 md:w-2.5 md:h-2.5 lg:w-2.5 lg:h-2.5 text-orange-600" />
+      </div>
+      <div>
+        <p className="text-[6px] md:text-[7px] lg:text-[8px] text-gray-500">تنبيه</p>
+        <p className="text-[8px] md:text-[9px] lg:text-[10px] font-bold text-gray-800">تم إرسال إشعار</p>
+      </div>
+    </div>
+  </motion.div>
 
-                {/* ── FRONT PHONE ── */}
-                <div style={{
-                  position: "absolute", top: "0%", left: "21%",
-                  width: "42%", zIndex: 20,
-                  transform: "perspective(1000px) rotateY(-13deg) rotateX(6deg)",
-                }}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: [0, -14, 0] }}
-                    transition={{ opacity: { duration: 0.8, delay: 0.2 }, y: { delay: 0.2, duration: 6, repeat: Infinity, ease: "easeInOut", times: [0, 0.5, 1] } }}
-                    style={{ borderRadius: "40px", overflow: "hidden", border: "8px solid white", boxShadow: "0 60px 120px rgba(37,99,235,0.30),0 30px 60px rgba(0,0,0,0.14)" }}
-                  >
-                    <img src={imeiSearch} alt="IMEI Check" className="w-full h-auto block" />
-                  </motion.div>
-                </div>
+  {/* الإشعار الرابع: البحث عن IMEI */}
+  <motion.div
+    initial={{ opacity: 0, x: -15, y: -10 }}
+    animate={{ 
+      opacity: [0, 1, 1, 0],
+      x: [-15, 0, 0, 15],
+      y: [-10, 0, 0, 10]
+    }}
+    transition={{ 
+      duration: 4, 
+      repeat: Infinity,
+      repeatDelay: 2,
+      delay: 4.5,
+      times: [0, 0.1, 0.8, 1]
+    }}
+    className="absolute top-[65%] left-[15%] md:top-[70%] md:left-[10%] lg:top-[75%] lg:left-[5%] bg-white rounded-md shadow-sm p-1 md:p-1.5 z-20 w-[28vw] md:w-[22vw] lg:w-[140px]"
+  >
+    <div className="flex items-center gap-1">
+      <div className="w-4 h-4 md:w-5 md:h-5 lg:w-5 lg:h-5 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">
+        <Search className="w-2 h-2 md:w-2.5 md:h-2.5 lg:w-2.5 lg:h-2.5 text-purple-600" />
+      </div>
+      <div>
+        <p className="text-[6px] md:text-[7px] lg:text-[8px] text-gray-500">بحث</p>
+        <p className="text-[8px] md:text-[9px] lg:text-[10px] font-bold text-gray-800">تم العثور على IMEI</p>
+      </div>
+    </div>
+  </motion.div>
 
-                {/* ── FLOATING GLASSMORPHISM CARDS ── */}
-                {([
-                  { Icon: Search, title: "فحص IMEI", sub: "تحقق من حالة الجهاز", iconBg: "linear-gradient(135deg,#EFF6FF,#DBEAFE)", ic: "#2563EB", top: "1.3%", left: "0%", floatDur: 3.8, floatDelay: 0 },
-                  { Icon: FileText, title: "سجل الملكية", sub: "اعرف تاريخ الجهاز", iconBg: "linear-gradient(135deg,#FFF7ED,#FED7AA)", ic: "#F97316", top: "32%", left: "0%", floatDur: 4.5, floatDelay: 0.6 },
-                  { Icon: Shield, title: "حماية المشترين", sub: "شراء آمن مضمون", iconBg: "linear-gradient(135deg,#F0FDF4,#BBF7D0)", ic: "#16A34A", top: "64%", left: "0.9%", floatDur: 4.0, floatDelay: 1.2 },
-                  { Icon: Bell, title: "إشعارات فورية", sub: "تنبيهات لحظية", iconBg: "linear-gradient(135deg,#FAF5FF,#E9D5FF)", ic: "#7C3AED", top: "0.8%", left: "71%", floatDur: 3.5, floatDelay: 0.3 },
-                  { Icon: ShoppingBag, title: "متاجر موثوقة", sub: "تسوق بأمان", iconBg: "linear-gradient(135deg,#FFF7ED,#FED7AA)", ic: "#F97316", top: "78%", left: "45%", floatDur: 4.2, floatDelay: 0.9 },
-                ] as const).map((card, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, scale: 0.75 }}
-                    animate={{ opacity: 1, scale: 1, y: [0, -(6 + i * 1.5), 0] }}
-                    transition={{
-                      opacity: { duration: 0.5, delay: 0.6 + i * 0.12 },
-                      scale: { duration: 0.5, delay: 0.6 + i * 0.12 },
-                      y: { duration: card.floatDur, delay: card.floatDelay, repeat: Infinity, ease: "easeInOut" },
-                    }}
-                    className="absolute flex items-center gap-2 px-2 py-2 md:px-3 md:py-2.5"
-                    style={{
-                      top: card.top, left: card.left,
-                      zIndex: 30, width: "28%",
-                      background: "rgba(255,255,255,0.72)",
-                      backdropFilter: "blur(14px)",
-                      WebkitBackdropFilter: "blur(14px)",
-                      border: "1px solid rgba(255,255,255,0.65)",
-                      borderRadius: "12px md:rounded-[18px]",
-                      boxShadow: "0 8px 32px rgba(0,0,0,0.09),0 2px 8px rgba(0,0,0,0.04)",
-                    }}
-                  >
-                    <div className="w-7 h-7 md:w-9 md:h-9 rounded-lg md:rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: card.iconBg }}>
-                      <card.Icon className="w-3 h-3 md:w-4 h-4" style={{ color: card.ic }} />
-                    </div>
-                    <div className="overflow-hidden">
-                      <p className="text-[10px] md:text-[11px] font-bold text-[#0D2137] leading-tight truncate">{card.title}</p>
-                      <p className="text-[8px] md:text-[9.5px] text-gray-400 leading-tight mt-0.5 truncate">{card.sub}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+  {/* الإشعار الخامس: نقل الملكية */}
+  <motion.div
+    initial={{ opacity: 0, x: 15, y: 10 }}
+    animate={{ 
+      opacity: [0, 1, 1, 0],
+      x: [15, 0, 0, -15],
+      y: [10, 0, 0, -10]
+    }}
+    transition={{ 
+      duration: 4, 
+      repeat: Infinity,
+      repeatDelay: 2,
+      delay: 6,
+      times: [0, 0.1, 0.8, 1]
+    }}
+    className="absolute bottom-[25%] right-[20%] md:bottom-[30%] md:right-[15%] lg:bottom-[35%] lg:right-[10%] bg-white rounded-md shadow-sm p-1 md:p-1.5 z-20 w-[28vw] md:w-[22vw] lg:w-[140px]"
+  >
+    <div className="flex items-center gap-1">
+      <div className="w-4 h-4 md:w-5 md:h-5 lg:w-5 lg:h-5 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
+        <ArrowLeftRight className="w-2 h-2 md:w-2.5 md:h-2.5 lg:w-2.5 lg:h-2.5 text-indigo-600" />
+      </div>
+      <div>
+        <p className="text-[6px] md:text-[7px] lg:text-[8px] text-gray-500">نقل</p>
+        <p className="text-[8px] md:text-[9px] lg:text-[10px] font-bold text-gray-800">تم نقل الملكية</p>
+      </div>
+    </div>
+  </motion.div>
+</div>
+
 
           </div>
         </div>
@@ -556,7 +613,7 @@ export default function LandingPage() {
           <p className="text-base md:text-lg md:text-xl text-blue-200 mb-6 md:mb-10">تواصل مع فريق الدعم عبر واتساب أو حمّل التطبيق الآن</p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
             <Button size="lg" asChild className="rounded-full h-14 md:h-16 px-6 md:px-8 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-base md:text-xl shadow-xl shadow-[#25D366]/20">
-              <a href="https://wa.me/+971000000000" target="_blank" rel="noreferrer">
+              <a href="https://wa.me/+201023579280" target="_blank" rel="noreferrer">
                 <SiWhatsapp className="ml-3 w-5 h-5 md:w-6 md:h-6" />
                 تواصل عبر واتساب
               </a>
@@ -592,7 +649,7 @@ export default function LandingPage() {
             </nav>
             
             <div className="flex gap-3 md:gap-4">
-              <a href="https://wa.me/+971000000000" className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all text-white">
+              <a href="https://wa.me/+201023579280" className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all text-white">
                 <SiWhatsapp className="w-4 h-4 md:w-5 md:h-5" />
               </a>
             </div>
@@ -605,7 +662,7 @@ export default function LandingPage() {
 
       {/* Floating WhatsApp Button */}
       <a 
-        href="https://wa.me/+20102787797"
+        href="https://wa.me/+201023579280"
         target="_blank" 
         rel="noreferrer"
         className="fixed bottom-4 md:bottom-6 left-4 md:left-6 z-50 w-14 h-14 md:w-16 md:h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform"
