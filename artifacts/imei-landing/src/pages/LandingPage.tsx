@@ -88,7 +88,7 @@ export default function LandingPage() {
       {/* 2. Hero Section — Premium Redesign */}
       <section
         id="hero"
-        className="relative min-h-[85vh] md:min-h-[80vh] flex items-center overflow-hidden pt-16 md:pt-20"
+        className="relative min-h-[100vh] md:min-h-[80vh] flex items-center overflow-hidden pt-16 md:pt-20"
         style={{ background: "linear-gradient(145deg,#EBF3FF 0%,#F6F9FF 45%,#FFF6EE 100%)" }}
       >
         {/* ── Background: dot grid ── */}
@@ -115,8 +115,8 @@ export default function LandingPage() {
           <line x1="58%" y1="88%" x2="28%" y2="52%" stroke="#FF8A00" strokeWidth="0.6" />
         </svg>
 
-        <div className="container mx-auto px-4 sm:px-6 relative z-10 py-6 md:py-8">
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10 py-2 md:py-4">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-0 md:space-x-8 items-center">
 
             {/* ══════════ TEXT COLUMN (right in RTL) ══════════ */}
             <motion.div
@@ -244,7 +244,7 @@ export default function LandingPage() {
             </motion.div>
 
             {/* ══════════ IMAGE COLUMN (left in RTL) ══════════ */}
-            <div className="flex justify-center items-center order-1 md:order-2 relative w-full h-full">
+            <div className="relative w-full mb-10 md:mb-0 order-1 md:order-2 flex justify-center items-center overflow-visible">
               <motion.img
                 src={heroPhones}
                 alt="IMEI Safe"
@@ -258,7 +258,7 @@ export default function LandingPage() {
                     ease: "easeInOut",
                   },
                 }}
-                className="w-full min-w-[350px] max-w-[600px] h-auto drop-shadow-2xl relative z-10 object-contain mx-auto"
+                className="w-full max-w-[460px] md:max-w-[540px] md:scale-125 h-auto drop-shadow-2xl relative z-10 object-contain mx-auto"
               />
               
               {/* الإشعار الأول: التحقق من الهاتف */}
