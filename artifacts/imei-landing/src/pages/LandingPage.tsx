@@ -35,11 +35,11 @@ export default function LandingPage() {
       {/* 1. Navbar */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-transparent"}`}>
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
+          <div className="flex items-center justify-between h-20 md:h-24">
             {/* Logo (Right in RTL) */}
-            <div className="flex items-center gap-2">
-              <img src={imeiLogo} alt="IMEI Logo" className="h-8 md:h-10 object-contain" />
-              <span className="font-bold text-lg md:text-xl text-primary hidden sm:block">تطبيق IMEI</span>
+            <div className="flex items-center gap-3">
+              <img src={imeiLogo} alt="IMEI Logo" className="h-12 md:h-16 object-contain" />
+              <span className="font-bold text-xl md:text-2xl text-primary hidden sm:block">تطبيق IMEI</span>
             </div>
 
             {/* Desktop Nav */}
@@ -52,9 +52,9 @@ export default function LandingPage() {
 
             {/* Actions (Left in RTL) */}
             <div className="flex items-center gap-3 md:gap-4">
-              <Button asChild className="hidden sm:flex rounded-full bg-primary hover:bg-primary/90 text-white font-semibold shadow-lg shadow-primary/20 text-sm md:text-base px-4 md:px-6 py-2">
+              <Button asChild className="hidden sm:flex rounded-full bg-primary hover:bg-primary/90 text-white font-semibold shadow-lg shadow-primary/20 text-base md:text-lg px-5 md:px-7 py-2.5">
                 <a href="https://play.google.com/store/apps/details?id=com.imei.app" target="_blank" rel="noreferrer">
-                  <SiGoogleplay className="ml-2 w-4 h-4" />
+                  <SiGoogleplay className="ml-2 w-5 h-5" />
                   حمّل التطبيق
                 </a>
               </Button>
@@ -65,6 +65,7 @@ export default function LandingPage() {
           </div>
         </div>
       </header>
+
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
@@ -87,7 +88,7 @@ export default function LandingPage() {
       {/* 2. Hero Section — Premium Redesign */}
       <section
         id="hero"
-        className="relative min-h-[90vh] md:min-h-[85vh] flex items-center overflow-hidden pt-20 md:pt-24"
+        className="relative min-h-[85vh] md:min-h-[80vh] flex items-center overflow-hidden pt-16 md:pt-20"
         style={{ background: "linear-gradient(145deg,#EBF3FF 0%,#F6F9FF 45%,#FFF6EE 100%)" }}
       >
         {/* ── Background: dot grid ── */}
@@ -114,7 +115,7 @@ export default function LandingPage() {
           <line x1="58%" y1="88%" x2="28%" y2="52%" stroke="#FF8A00" strokeWidth="0.6" />
         </svg>
 
-        <div className="container mx-auto px-4 sm:px-6 relative z-10 py-8 md:py-12">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10 py-6 md:py-8">
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
 
             {/* ══════════ TEXT COLUMN (right in RTL) ══════════ */}
@@ -148,7 +149,7 @@ export default function LandingPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.15 }}
-                className="font-black text-[#0D2137] mb-3 md:mb-5 leading-[1.7]" // 将 leading-[1.18] 改为 leading-[1.4]
+                className="font-black text-[#0D2137] mb-3 md:mb-5 leading-[1.7]"
                 style={{ fontSize: "clamp(1.8rem, 5vw, 3.8rem)" }}
               >
                 اجعل شراء وبيع<br />
@@ -242,168 +243,167 @@ export default function LandingPage() {
               </motion.div>
             </motion.div>
 
-            <div className="flex justify-center md:justify-start order-1 md:order-2 relative p-0 m-0">
-  <motion.img
-    src={heroPhones}
-    alt="IMEI Safe"
-    initial={{ opacity: 0, y: 40 }}
-    animate={{ opacity: 1, y: [0, -10, 0] }}
-    transition={{
-      opacity: { duration: 0.8 },
-      y: {
-        duration: 6,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
-    }}
-    className="w-full min-w-[450px] max-w-[800px] h-auto drop-shadow-2xl relative z-10"
-  />
-  
-  {/* الإشعار الأول: التحقق من الهاتف */}
-  <motion.div
-    initial={{ opacity: 0, x: 15, y: 10 }}
-    animate={{ 
-      opacity: [0, 1, 1, 0],
-      x: [15, 0, 0, -15],
-      y: [10, 0, 0, -10]
-    }}
-    transition={{ 
-      duration: 4, 
-      repeat: Infinity,
-      repeatDelay: 2,
-      times: [0, 0.1, 0.8, 1]
-    }}
-    className="absolute top-[8%] right-[20%] md:top-[12%] md:right-[15%] lg:top-[15%] lg:right-[10%] bg-white rounded-md shadow-sm p-1 md:p-1.5 z-20 w-[28vw] md:w-[22vw] lg:w-[140px]"
-  >
-    <div className="flex items-center gap-1">
-      <div className="w-4 h-4 md:w-5 md:h-5 lg:w-5 lg:h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
-        <Check className="w-2 h-2 md:w-2.5 md:h-2.5 lg:w-2.5 lg:h-2.5 text-green-600" />
-      </div>
-      <div>
-        <p className="text-[6px] md:text-[7px] lg:text-[8px] text-gray-500">تم التحقق</p>
-        <p className="text-[8px] md:text-[9px] lg:text-[10px] font-bold text-gray-800">الهاتف آمن</p>
-      </div>
-    </div>
-  </motion.div>
+            {/* ══════════ IMAGE COLUMN (left in RTL) ══════════ */}
+            <div className="flex justify-center items-center order-1 md:order-2 relative w-full h-full">
+              <motion.img
+                src={heroPhones}
+                alt="IMEI Safe"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: [0, -10, 0] }}
+                transition={{
+                  opacity: { duration: 0.8 },
+                  y: {
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  },
+                }}
+                className="w-full min-w-[350px] max-w-[600px] h-auto drop-shadow-2xl relative z-10 object-contain mx-auto"
+              />
+              
+              {/* الإشعار الأول: التحقق من الهاتف */}
+              <motion.div
+                initial={{ opacity: 0, x: 15, y: 10 }}
+                animate={{ 
+                  opacity: [0, 1, 1, 0],
+                  x: [15, 0, 0, -15],
+                  y: [10, 0, 0, -10]
+                }}
+                transition={{ 
+                  duration: 4, 
+                  repeat: Infinity,
+                  repeatDelay: 2,
+                  times: [0, 0.1, 0.8, 1]
+                }}
+                className="absolute top-[8%] right-[20%] md:top-[12%] md:right-[15%] lg:top-[15%] lg:right-[10%] bg-white rounded-md shadow-sm p-1 md:p-1.5 z-20 w-[28vw] md:w-[22vw] lg:w-[140px]"
+              >
+                <div className="flex items-center gap-1">
+                  <div className="w-4 h-4 md:w-5 md:h-5 lg:w-5 lg:h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                    <Check className="w-2 h-2 md:w-2.5 md:h-2.5 lg:w-2.5 lg:h-2.5 text-green-600" />
+                  </div>
+                  <div>
+                    <p className="text-[6px] md:text-[7px] lg:text-[8px] text-gray-500">تم التحقق</p>
+                    <p className="text-[8px] md:text-[9px] lg:text-[10px] font-bold text-gray-800">الهاتف آمن</p>
+                  </div>
+                </div>
+              </motion.div>
 
-  {/* الإشعار الثاني: تسجيل الجهاز */}
-  <motion.div
-    initial={{ opacity: 0, x: -15, y: 10 }}
-    animate={{ 
-      opacity: [0, 1, 1, 0],
-      x: [-15, 0, 0, 15],
-      y: [10, 0, 0, -10]
-    }}
-    transition={{ 
-      duration: 4, 
-      repeat: Infinity,
-      repeatDelay: 2,
-      delay: 1.5,
-      times: [0, 0.1, 0.8, 1]
-    }}
-    className="absolute bottom-[35%] left-[20%] md:bottom-[40%] md:left-[15%] lg:bottom-[45%] lg:left-[10%] bg-white rounded-md shadow-sm p-1 md:p-1.5 z-20 w-[28vw] md:w-[22vw] lg:w-[140px]"
-  >
-    <div className="flex items-center gap-1">
-      <div className="w-4 h-4 md:w-5 md:h-5 lg:w-5 lg:h-5 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-        <Shield className="w-2 h-2 md:w-2.5 md:h-2.5 lg:w-2.5 lg:h-2.5 text-blue-600" />
-      </div>
-      <div>
-        <p className="text-[6px] md:text-[7px] lg:text-[8px] text-gray-500">حماية</p>
-        <p className="text-[8px] md:text-[9px] lg:text-[10px] font-bold text-gray-800">تم تسجيل الجهاز</p>
-      </div>
-    </div>
-  </motion.div>
+              {/* الإشعار الثاني: تسجيل الجهاز */}
+              <motion.div
+                initial={{ opacity: 0, x: -15, y: 10 }}
+                animate={{ 
+                  opacity: [0, 1, 1, 0],
+                  x: [-15, 0, 0, 15],
+                  y: [10, 0, 0, -10]
+                }}
+                transition={{ 
+                  duration: 4, 
+                  repeat: Infinity,
+                  repeatDelay: 2,
+                  delay: 1.5,
+                  times: [0, 0.1, 0.8, 1]
+                }}
+                className="absolute bottom-[35%] left-[20%] md:bottom-[40%] md:left-[15%] lg:bottom-[45%] lg:left-[10%] bg-white rounded-md shadow-sm p-1 md:p-1.5 z-20 w-[28vw] md:w-[22vw] lg:w-[140px]"
+              >
+                <div className="flex items-center gap-1">
+                  <div className="w-4 h-4 md:w-5 md:h-5 lg:w-5 lg:h-5 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                    <Shield className="w-2 h-2 md:w-2.5 md:h-2.5 lg:w-2.5 lg:h-2.5 text-blue-600" />
+                  </div>
+                  <div>
+                    <p className="text-[6px] md:text-[7px] lg:text-[8px] text-gray-500">حماية</p>
+                    <p className="text-[8px] md:text-[9px] lg:text-[10px] font-bold text-gray-800">تم تسجيل الجهاز</p>
+                  </div>
+                </div>
+              </motion.div>
 
-  {/* الإشعار الثالث: إرسال إشعار */}
-  <motion.div
-    initial={{ opacity: 0, x: 15, y: -10 }}
-    animate={{ 
-      opacity: [0, 1, 1, 0],
-      x: [15, 0, 0, -15],
-      y: [-10, 0, 0, 10]
-    }}
-    transition={{ 
-      duration: 4, 
-      repeat: Infinity,
-      repeatDelay: 2,
-      delay: 3,
-      times: [0, 0.1, 0.8, 1]
-    }}
-    className="absolute top-[50%] right-[15%] md:top-[55%] md:right-[10%] lg:top-[60%] lg:right-[5%] bg-white rounded-md shadow-sm p-1 md:p-1.5 z-20 w-[28vw] md:w-[22vw] lg:w-[140px]"
-  >
-    <div className="flex items-center gap-1">
-      <div className="w-4 h-4 md:w-5 md:h-5 lg:w-5 lg:h-5 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0">
-        <Bell className="w-2 h-2 md:w-2.5 md:h-2.5 lg:w-2.5 lg:h-2.5 text-orange-600" />
-      </div>
-      <div>
-        <p className="text-[6px] md:text-[7px] lg:text-[8px] text-gray-500">تنبيه</p>
-        <p className="text-[8px] md:text-[9px] lg:text-[10px] font-bold text-gray-800">تم إرسال إشعار</p>
-      </div>
-    </div>
-  </motion.div>
+              {/* الإشعار الثالث: إرسال إشعار */}
+              <motion.div
+                initial={{ opacity: 0, x: 15, y: -10 }}
+                animate={{ 
+                  opacity: [0, 1, 1, 0],
+                  x: [15, 0, 0, -15],
+                  y: [-10, 0, 0, 10]
+                }}
+                transition={{ 
+                  duration: 4, 
+                  repeat: Infinity,
+                  repeatDelay: 2,
+                  delay: 3,
+                  times: [0, 0.1, 0.8, 1]
+                }}
+                className="absolute top-[50%] right-[15%] md:top-[55%] md:right-[10%] lg:top-[60%] lg:right-[5%] bg-white rounded-md shadow-sm p-1 md:p-1.5 z-20 w-[28vw] md:w-[22vw] lg:w-[140px]"
+              >
+                <div className="flex items-center gap-1">
+                  <div className="w-4 h-4 md:w-5 md:h-5 lg:w-5 lg:h-5 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0">
+                    <Bell className="w-2 h-2 md:w-2.5 md:h-2.5 lg:w-2.5 lg:h-2.5 text-orange-600" />
+                  </div>
+                  <div>
+                    <p className="text-[6px] md:text-[7px] lg:text-[8px] text-gray-500">تنبيه</p>
+                    <p className="text-[8px] md:text-[9px] lg:text-[10px] font-bold text-gray-800">تم إرسال إشعار</p>
+                  </div>
+                </div>
+              </motion.div>
 
-  {/* الإشعار الرابع: البحث عن IMEI */}
-  <motion.div
-    initial={{ opacity: 0, x: -15, y: -10 }}
-    animate={{ 
-      opacity: [0, 1, 1, 0],
-      x: [-15, 0, 0, 15],
-      y: [-10, 0, 0, 10]
-    }}
-    transition={{ 
-      duration: 4, 
-      repeat: Infinity,
-      repeatDelay: 2,
-      delay: 4.5,
-      times: [0, 0.1, 0.8, 1]
-    }}
-    className="absolute top-[65%] left-[15%] md:top-[70%] md:left-[10%] lg:top-[75%] lg:left-[5%] bg-white rounded-md shadow-sm p-1 md:p-1.5 z-20 w-[28vw] md:w-[22vw] lg:w-[140px]"
-  >
-    <div className="flex items-center gap-1">
-      <div className="w-4 h-4 md:w-5 md:h-5 lg:w-5 lg:h-5 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">
-        <Search className="w-2 h-2 md:w-2.5 md:h-2.5 lg:w-2.5 lg:h-2.5 text-purple-600" />
-      </div>
-      <div>
-        <p className="text-[6px] md:text-[7px] lg:text-[8px] text-gray-500">بحث</p>
-        <p className="text-[8px] md:text-[9px] lg:text-[10px] font-bold text-gray-800">تم العثور على IMEI</p>
-      </div>
-    </div>
-  </motion.div>
+              {/* الإشعار الرابع: البحث عن IMEI */}
+              <motion.div
+                initial={{ opacity: 0, x: -15, y: -10 }}
+                animate={{ 
+                  opacity: [0, 1, 1, 0],
+                  x: [-15, 0, 0, 15],
+                  y: [-10, 0, 0, 10]
+                }}
+                transition={{ 
+                  duration: 4, 
+                  repeat: Infinity,
+                  repeatDelay: 2,
+                  delay: 4.5,
+                  times: [0, 0.1, 0.8, 1]
+                }}
+                className="absolute top-[65%] left-[15%] md:top-[70%] md:left-[10%] lg:top-[75%] lg:left-[5%] bg-white rounded-md shadow-sm p-1 md:p-1.5 z-20 w-[28vw] md:w-[22vw] lg:w-[140px]"
+              >
+                <div className="flex items-center gap-1">
+                  <div className="w-4 h-4 md:w-5 md:h-5 lg:w-5 lg:h-5 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">
+                    <Search className="w-2 h-2 md:w-2.5 md:h-2.5 lg:w-2.5 lg:h-2.5 text-purple-600" />
+                  </div>
+                  <div>
+                    <p className="text-[6px] md:text-[7px] lg:text-[8px] text-gray-500">بحث</p>
+                    <p className="text-[8px] md:text-[9px] lg:text-[10px] font-bold text-gray-800">تم العثور على IMEI</p>
+                  </div>
+                </div>
+              </motion.div>
 
-  {/* الإشعار الخامس: نقل الملكية */}
-  <motion.div
-    initial={{ opacity: 0, x: 15, y: 10 }}
-    animate={{ 
-      opacity: [0, 1, 1, 0],
-      x: [15, 0, 0, -15],
-      y: [10, 0, 0, -10]
-    }}
-    transition={{ 
-      duration: 4, 
-      repeat: Infinity,
-      repeatDelay: 2,
-      delay: 6,
-      times: [0, 0.1, 0.8, 1]
-    }}
-    className="absolute bottom-[25%] right-[20%] md:bottom-[30%] md:right-[15%] lg:bottom-[35%] lg:right-[10%] bg-white rounded-md shadow-sm p-1 md:p-1.5 z-20 w-[28vw] md:w-[22vw] lg:w-[140px]"
-  >
-    <div className="flex items-center gap-1">
-      <div className="w-4 h-4 md:w-5 md:h-5 lg:w-5 lg:h-5 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
-        <ArrowLeftRight className="w-2 h-2 md:w-2.5 md:h-2.5 lg:w-2.5 lg:h-2.5 text-indigo-600" />
-      </div>
-      <div>
-        <p className="text-[6px] md:text-[7px] lg:text-[8px] text-gray-500">نقل</p>
-        <p className="text-[8px] md:text-[9px] lg:text-[10px] font-bold text-gray-800">تم نقل الملكية</p>
-      </div>
-    </div>
-  </motion.div>
-</div>
-
-
-
+              {/* الإشعار الخامس: نقل الملكية */}
+              <motion.div
+                initial={{ opacity: 0, x: 15, y: 10 }}
+                animate={{ 
+                  opacity: [0, 1, 1, 0],
+                  x: [15, 0, 0, -15],
+                  y: [10, 0, 0, -10]
+                }}
+                transition={{ 
+                  duration: 4, 
+                  repeat: Infinity,
+                  repeatDelay: 2,
+                  delay: 6,
+                  times: [0, 0.1, 0.8, 1]
+                }}
+                className="absolute bottom-[25%] right-[20%] md:bottom-[30%] md:right-[15%] lg:bottom-[35%] lg:right-[10%] bg-white rounded-md shadow-sm p-1 md:p-1.5 z-20 w-[28vw] md:w-[22vw] lg:w-[140px]"
+              >
+                <div className="flex items-center gap-1">
+                  <div className="w-4 h-4 md:w-5 md:h-5 lg:w-5 lg:h-5 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
+                    <ArrowLeftRight className="w-2 h-2 md:w-2.5 md:h-2.5 lg:w-2.5 lg:h-2.5 text-indigo-600" />
+                  </div>
+                  <div>
+                    <p className="text-[6px] md:text-[7px] lg:text-[8px] text-gray-500">نقل</p>
+                    <p className="text-[8px] md:text-[9px] lg:text-[10px] font-bold text-gray-800">تم نقل الملكية</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
+
 
 
       {/* 3. Features Strip */}
