@@ -256,7 +256,7 @@ export default function LandingPage() {
         ease: "easeInOut",
       },
     }}
-    className="w-full max-w-[750px] h-auto drop-shadow-2xl relative z-10"
+    className="w-full min-w-[500px] max-w-[900px] h-auto drop-shadow-2xl relative z-10"
   />
   
   {/* الإشعار الأول: التحقق من الهاتف */}
