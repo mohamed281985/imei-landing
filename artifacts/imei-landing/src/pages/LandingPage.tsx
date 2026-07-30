@@ -242,7 +242,7 @@ export default function LandingPage() {
               </motion.div>
             </motion.div>
 
-          <div className="flex justify-center md:justify-start order-1 md:order-2 relative">
+            <div className="flex justify-center md:justify-start order-1 md:order-2 relative">
   <motion.img
     src={heroPhones}
     alt="IMEI Safe"
@@ -256,7 +256,7 @@ export default function LandingPage() {
         ease: "easeInOut",
       },
     }}
-    className="w-full max-w-[620px] h-auto drop-shadow-2xl relative z-10"
+    className="w-full max-w-[750px] h-auto drop-shadow-2xl relative z-10"
   />
   
   {/* الإشعار الأول: التحقق من الهاتف */}
@@ -400,6 +400,7 @@ export default function LandingPage() {
 </div>
 
 
+
           </div>
         </div>
       </section>
@@ -428,14 +429,14 @@ export default function LandingPage() {
       <section className="py-16 md:py-20 lg:py-32 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-            <motion.div 
+            <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true }}
               variants={{ hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6 } } }}
               className="order-2 lg:order-1"
             >
               <img src={checkBefore} alt="تحقق قبل الشراء" className="w-full max-w-md mx-auto drop-shadow-2xl rounded-2xl" />
             </motion.div>
-            <motion.div 
+            <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true }}
               variants={{ hidden: { opacity: 0, x: -50 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6 } } }}
               className="order-1 lg:order-2 text-center lg:text-right"
@@ -482,15 +483,15 @@ export default function LandingPage() {
             <p className="text-base md:text-lg text-blue-100 max-w-2xl mx-auto">نظرة سريعة على كيفية حماية جهازك باستخدام تطبيقنا</p>
           </div>
           <div className="max-w-4xl mx-auto rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10 bg-black/50 aspect-video relative">
-      <video
-  autoPlay
-  muted
-  loop
-  playsInline
-  className="absolute inset-0 w-full h-full object-cover"
->
-  <source src="/videos/imei-safe.mp4" type="video/mp4" />
-</video>
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src="/videos/imei-safe.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </section>
@@ -639,7 +640,7 @@ export default function LandingPage() {
                 <span className="text-xs md:text-sm">نحمي جهازك، نؤمن بياناتك</span>
               </div>
             </div>
-            
+
             <nav className="flex flex-wrap justify-center gap-4 md:gap-6 font-medium text-sm md:text-base">
               <a href="#hero" className="hover:text-white transition-colors">الرئيسية</a>
               <a href="#features" className="hover:text-white transition-colors">المميزات</a>
@@ -647,7 +648,7 @@ export default function LandingPage() {
               <a href="#faq" className="hover:text-white transition-colors">الأسئلة الشائعة</a>
               <a href="#" className="hover:text-white transition-colors">سياسة الخصوصية</a>
             </nav>
-            
+
             <div className="flex gap-3 md:gap-4">
               <a href="https://wa.me/+201023579280" className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all text-white">
                 <SiWhatsapp className="w-4 h-4 md:w-5 md:h-5" />
@@ -661,9 +662,9 @@ export default function LandingPage() {
       </footer>
 
       {/* Floating WhatsApp Button */}
-      <a 
+      <a
         href="https://wa.me/+201023579280"
-        target="_blank" 
+        target="_blank"
         rel="noreferrer"
         className="fixed bottom-4 md:bottom-6 left-4 md:left-6 z-50 w-14 h-14 md:w-16 md:h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform"
         aria-label="تواصل معنا عبر واتساب"
