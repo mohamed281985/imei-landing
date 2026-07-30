@@ -242,7 +242,7 @@ export default function LandingPage() {
               </motion.div>
             </motion.div>
 
-            <div className="flex justify-center md:justify-start order-1 md:order-2 relative">
+            <div className="flex justify-center md:justify-start order-1 md:order-2 relative p-0 m-0">
   <motion.img
     src={heroPhones}
     alt="IMEI Safe"
@@ -256,7 +256,7 @@ export default function LandingPage() {
         ease: "easeInOut",
       },
     }}
-    className="w-full min-w-[500px] max-w-[900px] h-auto drop-shadow-2xl relative z-10"
+    className="w-full min-w-[450px] max-w-[800px] h-auto drop-shadow-2xl relative z-10"
   />
   
   {/* الإشعار الأول: التحقق من الهاتف */}
