@@ -331,7 +331,7 @@ export default function FoundPhone() {
                   <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
                     احم هاتفك من خلال تسجيل IMEI الخاص بك. في حالة فقدانه أو سرقته، يمكن لأي شخص يجده تتبعك بسهولة.
                   </p>
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-2xl px-8 py-3 font-semibold">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-[16px] px-8 py-3 font-semibold">
                     ابدأ التسجيل الآن
                   </Button>
                 </motion.div>

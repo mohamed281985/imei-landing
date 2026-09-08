@@ -225,7 +225,7 @@ export default function LandingPage() {
               >
                 <div className="flex" dir="ltr">
                   {["#3B82F6", "#F97316", "#10B981", "#8B5CF6"].map((c, i) => (
-                    <div key={i} className="w-8 h-8 md:w-9 md:h-9 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold"
+                    <div key={i} className="w-8 h-8 md:w-9 h-9 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold"
                       style={{ background: `linear-gradient(135deg,${c}99,${c})`, marginLeft: i > 0 ? "-8px md:marginLeft: -10px" : "0", zIndex: 4 - i, position: "relative" }}>
                       {["م", "أ", "س", "ع"][i]}
                     </div>

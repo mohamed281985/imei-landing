@@ -132,7 +132,7 @@ export default function FoundPhone() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-50 to-slate-50 text-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50 text-slate-900">
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/70 backdrop-blur-md shadow-sm">
         <div className="container mx-auto px-4 py-2 flex justify-start">
@@ -147,7 +147,7 @@ export default function FoundPhone() {
       </header>
 
       <div className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-linear-to-b from-blue-100/30 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-blue-100/30 to-transparent" />
         
         <div className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col items-center px-4 py-6 lg:px-6">
           <motion.div
@@ -201,8 +201,8 @@ export default function FoundPhone() {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="mx-auto w-full max-w-2xl"
               >
-                <div className="rounded-3xl border border-red-200 bg-white shadow-lg overflow-hidden">
-                  <div className="px-8 py-12 text-center bg-linear-to-br from-red-50 to-orange-50 border-b border-red-200">
+                <div className="rounded-[24px] border border-red-200 bg-white shadow-lg overflow-hidden">
+                  <div className="px-8 py-12 text-center bg-gradient-to-br from-red-50 to-orange-50 border-b border-red-200">
                     <motion.div 
                       className="flex justify-center mb-6"
                       animate={{ y: [0, -8, 0] }}
@@ -248,9 +248,9 @@ export default function FoundPhone() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="rounded-3xl border border-green-200 bg-white shadow-lg overflow-hidden mb-8"
+                  className="rounded-[24px] border border-green-200 bg-white shadow-lg overflow-hidden mb-8"
                 >
-                  <div className="px-8 py-12 text-center bg-linear-to-br from-green-50 to-emerald-50 border-b border-green-200">
+                  <div className="px-8 py-12 text-center bg-gradient-to-br from-green-50 to-emerald-50 border-b border-green-200">
                     <motion.div 
                       className="flex justify-center mb-6"
                       initial={{ scale: 0 }}
@@ -289,7 +289,7 @@ export default function FoundPhone() {
                 >
                   <motion.div
                     whileHover={{ y: -4 }}
-                    className="rounded-3xl border border-slate-200 bg-white shadow-md p-8"
+                    className="rounded-[24px] border border-slate-200 bg-white shadow-md p-8"
                   >
                     <div className="flex items-center gap-3 mb-4">
                       <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-blue-600">
@@ -304,7 +304,7 @@ export default function FoundPhone() {
 
                   <motion.div
                     whileHover={{ y: -4 }}
-                    className="rounded-3xl border border-slate-200 bg-white shadow-md p-8"
+                    className="rounded-[24px] border border-slate-200 bg-white shadow-md p-8"
                   >
                     <div className="flex items-center gap-3 mb-4">
                       <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 text-green-600">
@@ -323,7 +323,7 @@ export default function FoundPhone() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
-                  className="mt-8 rounded-3xl border border-blue-200 bg-linear-to-br from-blue-50 to-slate-50 shadow-lg p-10 text-center"
+                  className="mt-8 rounded-[24px] border border-blue-200 bg-gradient-to-br from-blue-50 to-slate-50 shadow-lg p-10 text-center"
                 >
                   <h2 className="text-2xl font-bold text-slate-900 mb-3">
                     سجل هاتفك الآن
@@ -331,7 +331,7 @@ export default function FoundPhone() {
                   <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
                     احم هاتفك من خلال تسجيل IMEI الخاص بك. في حالة فقدانه أو سرقته، يمكن لأي شخص يجده تتبعك بسهولة.
                   </p>
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-2xl px-8 py-3 font-semibold">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-[16px] px-8 py-3 font-semibold">
                     ابدأ التسجيل الآن
                   </Button>
                 </motion.div>
@@ -351,9 +351,9 @@ export default function FoundPhone() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="rounded-3xl border border-red-200 bg-white shadow-lg overflow-hidden mb-8"
+                  className="rounded-[24px] border border-red-200 bg-white shadow-lg overflow-hidden mb-8"
                 >
-                  <div className="px-8 py-12 text-center bg-linear-to-br from-red-50 to-orange-50 border-b border-red-200">
+                  <div className="px-8 py-12 text-center bg-gradient-to-br from-red-50 to-orange-50 border-b border-red-200">
                     <motion.div 
                       className="flex justify-center mb-6"
                       initial={{ scale: 0 }}
@@ -403,7 +403,7 @@ export default function FoundPhone() {
                       >
                         <Button
                           asChild
-                          className="bg-green-600 hover:bg-green-700 text-white rounded-2xl px-8 py-3 font-semibold shadow-md hover:shadow-lg transition-all flex items-center gap-2"
+                          className="bg-green-600 hover:bg-green-700 text-white rounded-[16px] px-8 py-3 font-semibold shadow-md hover:shadow-lg transition-all flex items-center gap-2"
                         >
                           <a href={whatsappHref} target="_blank" rel="noreferrer noopener" className="flex items-center gap-2">
                             <MessageCircle className="h-5 w-5" />
@@ -425,7 +425,7 @@ export default function FoundPhone() {
                       >
                         <Button
                           asChild
-                          className="bg-blue-600 hover:bg-blue-700 text-white rounded-2xl px-8 py-3 font-semibold shadow-md hover:shadow-lg transition-all flex items-center gap-2"
+                          className="bg-blue-600 hover:bg-blue-700 text-white rounded-[16px] px-8 py-3 font-semibold shadow-md hover:shadow-lg transition-all flex items-center gap-2"
                         >
                           <a 
                       href={data?.whatsapp_number ? `tel:+${data.whatsapp_number.replace(/[^0-9]/g, "")}` : phoneHref} 
@@ -452,7 +452,7 @@ export default function FoundPhone() {
                           type="button"
                           onClick={handleContactOwner}
                           disabled={contactStatus !== "idle"}
-                          className="bg-amber-500 hover:bg-amber-600 text-white rounded-2xl px-8 py-3 font-semibold shadow-md hover:shadow-lg transition-all flex items-center gap-2 disabled:opacity-70"
+                          className="bg-amber-500 hover:bg-amber-600 text-white rounded-[16px] px-8 py-3 font-semibold shadow-md hover:shadow-lg transition-all flex items-center gap-2 disabled:opacity-70"
                         >
                           <BellRing className="h-5 w-5" />
                           {contactStatus === "sending"
@@ -471,10 +471,10 @@ export default function FoundPhone() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.9 }}
-                  className="rounded-3xl border border-blue-200 bg-linear-to-br from-blue-50 to-slate-50 shadow-lg p-8 text-right"
+                  className="rounded-[24px] border border-blue-200 bg-gradient-to-br from-blue-50 to-slate-50 shadow-lg p-8 text-right"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-blue-600 shrink-0">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-blue-600 flex-shrink-0">
                       <Lock className="h-6 w-6" />
                     </div>
                     <div>
