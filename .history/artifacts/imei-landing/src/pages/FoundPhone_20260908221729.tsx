@@ -54,7 +54,7 @@ export default function FoundPhone() {
   const [finderPhone, setFinderPhone] = useState("");
   const [captchaToken, setCaptchaToken] = useState("");
   const captchaContainerRef = useRef<HTMLDivElement>(null);
-  const captchaWidgetIdRef = useRef<string | null>(null);
+  const captchaWidgetIdRef = useRef<string | undefined>(undefined);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -88,7 +88,7 @@ export default function FoundPhone() {
 
     return () => {
       script.removeEventListener("load", renderCaptcha);
-      captchaWidgetIdRef.current = null;
+      captchaWidgetIdRef.current = undefined;
       setCaptchaToken("");
     };
   }, [data]);

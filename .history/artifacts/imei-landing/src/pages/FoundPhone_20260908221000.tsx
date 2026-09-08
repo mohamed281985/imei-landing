@@ -54,7 +54,7 @@ export default function FoundPhone() {
   const [finderPhone, setFinderPhone] = useState("");
   const [captchaToken, setCaptchaToken] = useState("");
   const captchaContainerRef = useRef<HTMLDivElement>(null);
-  const captchaWidgetIdRef = useRef<string | null>(null);
+  const captchaWidgetIdRef = useRef<string>();
   const { toast } = useToast();
 
   useEffect(() => {
@@ -88,7 +88,7 @@ export default function FoundPhone() {
 
     return () => {
       script.removeEventListener("load", renderCaptcha);
-      captchaWidgetIdRef.current = null;
+      captchaWidgetIdRef.current = undefined;
       setCaptchaToken("");
     };
   }, [data]);
@@ -542,7 +542,7 @@ export default function FoundPhone() {
                             className="h-12 flex-1 rounded-2xl border border-slate-200 bg-white px-4 text-right text-slate-900 outline-none transition focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 disabled:opacity-70"
                             dir="ltr"
                           />
-                          <div ref={captchaContainerRef} className="min-h-16.25" />
+                          <div ref={captchaContainerRef} className="min-h-[65px]" />
                           <Button
                             type="button"
                             onClick={handleContactOwner}

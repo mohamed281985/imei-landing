@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useRef, useState } from "react";
+﻿import { useEffect, useMemo, useState } from "react";
 import { useRoute } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { AlertTriangle, BellRing, ShieldCheck, MessageCircle, Phone, Shield, Lock, QrCode } from "lucide-react";
@@ -25,25 +25,6 @@ interface FoundResponse {
   code?: string;
 }
 
-interface TurnstileApi {
-  render: (
-    container: HTMLElement,
-    options: {
-      sitekey: string;
-      callback: (token: string) => void;
-      "expired-callback": () => void;
-      "error-callback": () => void;
-    },
-  ) => string;
-  reset: (widgetId?: string) => void;
-}
-
-declare global {
-  interface Window {
-    turnstile?: TurnstileApi;
-  }
-}
-
 export default function FoundPhone() {
   const [match, params] = useRoute("/found/:token");
   const token = params?.token;
@@ -52,46 +33,7 @@ export default function FoundPhone() {
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [contactStatus, setContactStatus] = useState<"idle" | "sending" | "sent">("idle");
   const [finderPhone, setFinderPhone] = useState("");
-  const [captchaToken, setCaptchaToken] = useState("");
-  const captchaContainerRef = useRef<HTMLDivElement>(null);
-  const captchaWidgetIdRef = useRef<string | null>(null);
   const { toast } = useToast();
-
-  useEffect(() => {
-    if (!data || data.anther_number?.trim()) return;
-
-    const siteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY as string | undefined;
-    if (!siteKey || !captchaContainerRef.current) return;
-
-    const renderCaptcha = () => {
-      if (!window.turnstile || !captchaContainerRef.current || captchaWidgetIdRef.current) return;
-
-      captchaWidgetIdRef.current = window.turnstile.render(captchaContainerRef.current, {
-        sitekey: siteKey,
-        callback: setCaptchaToken,
-        "expired-callback": () => setCaptchaToken(""),
-        "error-callback": () => setCaptchaToken(""),
-      });
-    };
-
-    if (window.turnstile) {
-      renderCaptcha();
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
-    script.async = true;
-    script.defer = true;
-    script.addEventListener("load", renderCaptcha);
-    document.head.appendChild(script);
-
-    return () => {
-      script.removeEventListener("load", renderCaptcha);
-      captchaWidgetIdRef.current = null;
-      setCaptchaToken("");
-    };
-  }, [data]);
 
   useEffect(() => {
     if (!token) {
@@ -170,36 +112,36 @@ export default function FoundPhone() {
       return;
     }
 
-    if (!captchaToken) {
-      toast({
-        title: "التحقق مطلوب",
-        description: "أكمل التحقق بأنك لست روبوتًا أولًا.",
-        variant: "destructive",
-      });
-      return;
-    }
-
     setContactStatus("sending");
 
     try {
-      const response = await fetch(`https://imei-safe.me/api/found/${encodeURIComponent(token)}/contact`, {
+      const accessToken =
+        window.localStorage.getItem("access_token") ||
+        window.localStorage.getItem("supabase_access_token");
+      const response = await fetch("https://imei-safe.me/api/update-finder-phone-by-imei", {
         method: "POST",
         credentials: "include",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
+        },
         body: JSON.stringify({
+          imei: data?.code || token,
           finderPhone: normalizedFinderPhone,
-          captchaToken,
         }),
       });
 
       const result: { success?: boolean; message?: string } = await response.json().catch(() => ({}));
+
+      if (response.status === 401) {
+        throw new Error("يجب تسجيل الدخول لإرسال الإشعار من هذه الصفحة.");
+      }
 
       if (!response.ok || result.success === false) {
         throw new Error(result.message || "تعذر إرسال الإشعار إلى المالك");
       }
 
       setContactStatus("sent");
-      setCaptchaToken("");
       toast({
         title: "تم إرسال الإشعار",
         description: "تم إبلاغ مالك الهاتف بأنك عثرت عليه.",
@@ -542,7 +484,6 @@ export default function FoundPhone() {
                             className="h-12 flex-1 rounded-2xl border border-slate-200 bg-white px-4 text-right text-slate-900 outline-none transition focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 disabled:opacity-70"
                             dir="ltr"
                           />
-                          <div ref={captchaContainerRef} className="min-h-16.25" />
                           <Button
                             type="button"
                             onClick={handleContactOwner}
