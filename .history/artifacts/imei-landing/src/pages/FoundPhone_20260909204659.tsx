@@ -148,6 +148,16 @@ export default function FoundPhone() {
     return () => controller.abort();
   }, [token]);
 
+  const whatsappHref = useMemo(() => {
+    if (!data?.whatsapp_number) return "";
+    return `https://wa.me/${data.whatsapp_number.replace(/[^0-9]/g, "")}`;
+  }, [data]);
+
+  const phoneHref = useMemo(() => {
+    if (!data?.phone) return "";
+    return `tel:${data.phone}`;
+  }, [data]);
+
   const ownerPhoneHref = useMemo(() => {
     const ownerNumber = data?.anther_number?.replace(/[^0-9+]/g, "");
     return ownerNumber ? `tel:${ownerNumber}` : "";
