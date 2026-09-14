@@ -647,7 +647,6 @@ export default function LandingPage() {
               <a href="#pricing" className="hover:text-white transition-colors">الباقات</a>
               <a href="#faq" className="hover:text-white transition-colors">الأسئلة الشائعة</a>
               <Link href="/privacy-policy" className="hover:text-white transition-colors">سياسة الخصوصية</Link>
-              <Link href="/terms-and-conditions" className="hover:text-white transition-colors">الشروط والأحكام</Link>
             </nav>
 
             <div className="flex gap-3 md:gap-4">

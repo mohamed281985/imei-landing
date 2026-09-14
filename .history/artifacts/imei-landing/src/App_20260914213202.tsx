@@ -5,7 +5,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import LandingPage from "@/pages/LandingPage";
 import FoundPhone from "@/pages/FoundPhone";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
-import TermsAndConditions from "@/pages/TermsAndConditions";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -15,7 +14,6 @@ function Router() {
     <Switch>
       <Route path="/" component={LandingPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
-      <Route path="/terms-and-conditions" component={TermsAndConditions} />
       <Route path="/found/:token" component={FoundPhone} />
       <Route component={NotFound} />
     </Switch>
