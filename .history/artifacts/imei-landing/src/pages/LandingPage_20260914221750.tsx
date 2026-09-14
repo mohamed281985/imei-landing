@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "wouter";
-import { Shield, Smartphone, Lock, Search, BadgeCheck, Bell, PlusCircle, ArrowLeftRight, Check, X, Menu, X as XIcon, FileText, ShoppingBag, Star, Play, MessageCircle } from "lucide-react";
+import { SiGoogleplay, SiWhatsapp } from "react-icons/si";
+import { Shield, Smartphone, Lock, Search, BadgeCheck, Bell, PlusCircle, ArrowLeftRight, Check, X, Menu, X as XIcon, FileText, ShoppingBag, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -55,7 +56,7 @@ export default function LandingPage() {
             <div className="flex items-center gap-3 md:gap-4">
               <Button asChild className="hidden sm:flex rounded-full bg-primary hover:bg-primary/90 text-white font-semibold shadow-lg shadow-primary/20 text-base md:text-lg px-5 md:px-7 py-2.5">
                 <a href="https://play.google.com/store/apps/details?id=com.imei.app" target="_blank" rel="noreferrer">
-                  <span className="ml-2 inline-flex items-center"><Play size={20} /></span>
+                  <span className="ml-2 inline-flex items-center"><SiGoogleplay size={20} /></span>
                   حمّل التطبيق
                 </a>
               </Button>
@@ -80,7 +81,7 @@ export default function LandingPage() {
             <Link href="/privacy-policy" onClick={() => setMobileMenuOpen(false)}><a>سياسة الخصوصية</a></Link>
             <Button asChild className="rounded-full bg-primary mt-4 py-4 text-base">
               <a href="https://play.google.com/store/apps/details?id=com.imei.app">
-                <span className="ml-2 inline-flex items-center"><Play size={18} /></span>
+                <span className="ml-2 inline-flex items-center"><SiGoogleplay size={18} /></span>
                 حمّل من Google Play
               </a>
             </Button>
@@ -196,7 +197,7 @@ export default function LandingPage() {
                     boxShadow: "0 8px 28px rgba(37,99,235,0.38),0 2px 8px rgba(37,99,235,0.18)",
                   }}
                 >
-                  <span className="inline-flex items-center"><Play size={18} /></span>
+                  <span className="inline-flex items-center"><SiGoogleplay size={18} /></span>
                   تحميل التطبيق
                 </motion.a>
 
@@ -618,13 +619,13 @@ export default function LandingPage() {
           <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
             <Button size="lg" asChild className="rounded-full h-14 md:h-16 px-6 md:px-8 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-base md:text-xl shadow-xl shadow-[#25D366]/20">
               <a href="https://wa.me/+201023579280" target="_blank" rel="noreferrer">
-                <span className="ml-3 inline-flex items-center"><MessageCircle size={22} /></span>
+                <span className="ml-3 inline-flex items-center"><SiWhatsapp size={22} /></span>
                 تواصل عبر واتساب
               </a>
             </Button>
             <Button size="lg" asChild className="rounded-full h-14 md:h-16 px-6 md:px-8 bg-primary hover:bg-primary/90 text-white font-bold text-base md:text-xl shadow-xl shadow-primary/20">
               <a href="https://play.google.com/store/apps/details?id=com.imei.app" target="_blank" rel="noreferrer">
-                <span className="ml-3 inline-flex items-center"><Play size={22} /></span>
+                <span className="ml-3 inline-flex items-center"><SiGoogleplay size={22} /></span>
                 حمّل من Google Play
               </a>
             </Button>
@@ -655,7 +656,7 @@ export default function LandingPage() {
 
             <div className="flex gap-3 md:gap-4">
               <a href="https://wa.me/+201023579280" className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all text-white">
-                <span className="inline-flex items-center"><MessageCircle size={18} /></span>
+                <span className="inline-flex items-center"><SiWhatsapp size={18} /></span>
               </a>
             </div>
           </div>
@@ -673,7 +674,7 @@ export default function LandingPage() {
         className="fixed bottom-4 md:bottom-6 left-4 md:left-6 z-50 w-14 h-14 md:w-16 md:h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform"
         aria-label="تواصل معنا عبر واتساب"
       >
-        <span className="inline-flex items-center"><MessageCircle size={28} /></span>
+        <span className="inline-flex items-center"><SiWhatsapp size={28} /></span>
       </a>
     </div>
   );
