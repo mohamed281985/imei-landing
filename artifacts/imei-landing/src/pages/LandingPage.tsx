@@ -54,7 +54,7 @@ export default function LandingPage() {
             {/* Actions (Left in RTL) */}
             <div className="flex items-center gap-3 md:gap-4">
               <Button asChild className="hidden sm:flex rounded-full bg-primary hover:bg-primary/90 text-white font-semibold shadow-lg shadow-primary/20 text-base md:text-lg px-5 md:px-7 py-2.5">
-                <a href="https://play.google.com/store/apps/details?id=com.imei.app" target="_blank" rel="noreferrer">
+                <a href="https://play.google.com/store/apps/details?id=com.imeisafe.app" target="_blank" rel="noreferrer">
                   <span className="ml-2 inline-flex items-center"><Play size={20} /></span>
                   حمّل التطبيق
                 </a>
@@ -79,7 +79,7 @@ export default function LandingPage() {
             <Link href="/terms-and-conditions" onClick={() => setMobileMenuOpen(false)}><a>شروط الاستخدام</a></Link>
             <Link href="/privacy-policy" onClick={() => setMobileMenuOpen(false)}><a>سياسة الخصوصية</a></Link>
             <Button asChild className="rounded-full bg-primary mt-4 py-4 text-base">
-              <a href="https://play.google.com/store/apps/details?id=com.imei.app">
+              <a href="https://play.google.com/store/apps/details?id=com.imeisafe.app">
                 <span className="ml-2 inline-flex items-center"><Play size={18} /></span>
                 حمّل من Google Play
               </a>
@@ -185,7 +185,7 @@ export default function LandingPage() {
                 className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start mb-4 md:mb-8"
               >
                 <motion.a
-                  href="https://play.google.com/store/apps/details?id=com.imei.app"
+                  href="https://play.google.com/store/apps/details?id=com.imeisafe.app"
                   target="_blank" rel="noreferrer"
                   whileHover={{ scale: 1.04, y: -3 }}
                   whileTap={{ scale: 0.97 }}
