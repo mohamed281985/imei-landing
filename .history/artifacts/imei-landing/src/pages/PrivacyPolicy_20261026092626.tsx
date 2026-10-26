@@ -177,6 +177,7 @@ export default function PrivacyPolicy() {
               <a href="/#faq" className="transition-colors hover:text-sky-700">الأسئلة الشائعة</a>
               <Link href="/terms-and-conditions"><a className="transition-colors hover:text-sky-700">شروط الاستخدام</a></Link>
               <Link href="/privacy-policy"><a className="font-bold text-sky-700">سياسة الخصوصية</a></Link>
+              <Link href="/refund-policy"><a className="transition-colors hover:text-sky-700">سياسة الاسترداد</a></Link>
             </nav>
 
             <div className="flex items-center gap-3">
@@ -211,6 +212,7 @@ export default function PrivacyPolicy() {
             <a href="/#faq" onClick={() => setMobileMenuOpen(false)}>الأسئلة الشائعة</a>
             <Link href="/terms-and-conditions" onClick={() => setMobileMenuOpen(false)}><a>شروط الاستخدام</a></Link>
             <Link href="/privacy-policy" onClick={() => setMobileMenuOpen(false)}><a>سياسة الخصوصية</a></Link>
+            <Link href="/refund-policy" onClick={() => setMobileMenuOpen(false)}><a>سياسة الاسترداد</a></Link>
             <a href="https://play.google.com/store/apps/details?id=com.imei.app" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full bg-sky-600 py-4 text-base font-bold text-white">
               <Play className="ml-2 h-5 w-5" />
               حمّل من Google Play

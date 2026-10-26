@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { ArrowLeft, Scale, ShieldAlert, FolderLock, FileCheck, Gavel, Mail, Ban } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowLeft, Scale, ShieldAlert, FolderLock, FileCheck, Gavel, Mail, Ban, Menu, X, Play } from "lucide-react";
 import { Link } from "wouter";
 
 const translations = {
@@ -146,107 +147,203 @@ const translations = {
 
 export default function TermsAndConditions() {
   const [language, setLanguage] = useState<"ar" | "en">("ar");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const content = translations[language];
   const isArabic = language === "ar";
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-slate-800" dir={isArabic ? "rtl" : "ltr"}>
-      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-        <header className="mb-8 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 via-amber-50 to-slate-50 text-slate-900">
+      <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/90 shadow-sm backdrop-blur-md">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="flex h-20 items-center justify-between md:h-24">
+            <a href="/#hero" className="flex items-center gap-3">
+              <motion.img
+                src="/imei-logo-nobg.png"
+                alt="IMEI Safe logo"
+                className="h-12 w-auto object-contain md:h-16"
+                whileHover={{ rotate: 5, scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              />
+              <span className="hidden text-xl font-bold text-amber-700 sm:block md:text-2xl">تطبيق IMEI</span>
+            </a>
+
+            <nav className="hidden items-center gap-6 text-sm font-medium text-slate-700 lg:flex">
+              <a href="/#hero" className="transition-colors hover:text-amber-700">الرئيسية</a>
+              <a href="/#features" className="transition-colors hover:text-amber-700">المميزات</a>
+              <a href="/#pricing" className="transition-colors hover:text-amber-700">الباقات</a>
+              <a href="/#faq" className="transition-colors hover:text-amber-700">الأسئلة الشائعة</a>
+              <Link href="/terms-and-conditions"><a className="font-bold text-amber-700">شروط الاستخدام</a></Link>
+              <Link href="/privacy-policy"><a className="transition-colors hover:text-amber-700">سياسة الخصوصية</a></Link>
+              <Link href="/refund-policy"><a className="transition-colors hover:text-amber-700">سياسة الاسترداد</a></Link>
+            </nav>
+
             <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-700">
-                <Gavel className="h-6 w-6" />
+              <a
+                href="https://play.google.com/store/apps/details?id=com.imei.app"
+                target="_blank"
+                rel="noreferrer"
+                className="hidden items-center rounded-full bg-amber-600 px-5 py-2.5 text-base font-semibold text-white shadow-lg shadow-amber-600/20 transition hover:bg-amber-500 sm:flex"
+              >
+                <Play className="ml-2 h-5 w-5" />
+                حمّل التطبيق
+              </a>
+              <button
+                type="button"
+                aria-label="فتح القائمة"
+                className="p-2 text-slate-700 lg:hidden"
+                onClick={() => setMobileMenuOpen((open) => !open)}
+              >
+                {mobileMenuOpen ? <X /> : <Menu />}
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-40 bg-white/95 px-4 pt-24 backdrop-blur-sm lg:hidden">
+          <nav className="flex flex-col gap-6 text-center text-lg font-medium text-slate-800">
+            <a href="/#hero" onClick={() => setMobileMenuOpen(false)}>الرئيسية</a>
+            <a href="/#features" onClick={() => setMobileMenuOpen(false)}>المميزات</a>
+            <a href="/#pricing" onClick={() => setMobileMenuOpen(false)}>الباقات</a>
+            <a href="/#faq" onClick={() => setMobileMenuOpen(false)}>الأسئلة الشائعة</a>
+            <Link href="/terms-and-conditions" onClick={() => setMobileMenuOpen(false)}><a>شروط الاستخدام</a></Link>
+            <Link href="/privacy-policy" onClick={() => setMobileMenuOpen(false)}><a>سياسة الخصوصية</a></Link>
+            <Link href="/refund-policy" onClick={() => setMobileMenuOpen(false)}><a>سياسة الاسترداد</a></Link>
+            <a href="https://play.google.com/store/apps/details?id=com.imei.app" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full bg-amber-600 py-4 text-base font-bold text-white">
+              <Play className="ml-2 h-5 w-5" />
+              حمّل من Google Play
+            </a>
+          </nav>
+        </div>
+      )}
+
+      <div className="relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-linear-to-b from-amber-100/30 to-transparent" />
+
+        <div className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col items-center px-4 py-8 lg:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="w-full max-w-5xl"
+          >
+            <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div className="text-center md:text-right">
+                <h1 className="text-3xl font-bold text-slate-900">{content.title}</h1>
+                <p className="mt-2 text-sm text-slate-500">IMEI Safe • الشروط والأحكام</p>
               </div>
-              <div>
-                <p className="text-sm font-medium text-amber-700">IMEI Safe</p>
-                <h1 className="text-2xl font-black text-slate-900">{content.title}</h1>
+
+              <div className="flex items-center gap-3 justify-center md:justify-end">
+                <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-white p-1 text-sm shadow-sm">
+                  <span className="px-2 text-slate-600">{content.languageLabel}</span>
+                  <button
+                    type="button"
+                    onClick={() => setLanguage("ar")}
+                    className={`rounded-full px-3 py-1.5 font-semibold transition ${
+                      isArabic ? "bg-amber-600 text-white" : "text-slate-600 hover:bg-slate-100"
+                    }`}
+                  >
+                    عربي
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setLanguage("en")}
+                    className={`rounded-full px-3 py-1.5 font-semibold transition ${
+                      !isArabic ? "bg-amber-600 text-white" : "text-slate-600 hover:bg-slate-100"
+                    }`}
+                  >
+                    English
+                  </button>
+                </div>
+
+                <Link href="/">
+                  <a className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-amber-200 hover:text-amber-700">
+                    <ArrowLeft className="h-4 w-4" />
+                    {content.back}
+                  </a>
+                </Link>
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-white p-1 text-sm">
-                <span className="px-2 text-slate-600">{content.languageLabel}</span>
-                <button
-                  type="button"
-                  onClick={() => setLanguage("ar")}
-                  className={`rounded-full px-3 py-1.5 font-semibold transition ${
-                    isArabic ? "bg-amber-600 text-white" : "text-slate-600 hover:bg-slate-100"
-                  }`}
-                >
-                  عربي
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setLanguage("en")}
-                  className={`rounded-full px-3 py-1.5 font-semibold transition ${
-                    !isArabic ? "bg-amber-600 text-white" : "text-slate-600 hover:bg-slate-100"
-                  }`}
-                >
-                  English
-                </button>
+            <div className="mb-8 rounded-3xl border border-amber-200 bg-white shadow-lg overflow-hidden">
+              <div className="bg-linear-to-r from-amber-50 to-sky-50 px-8 py-6 text-center">
+                <p className="text-lg font-bold text-amber-700">{content.noticeTitle}</p>
+                <p className="mt-2 text-slate-600 leading-8">{content.noticeText}</p>
               </div>
+            </div>
 
+            <div className="mb-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              {content.highlights.map(({ icon: Icon, title, text }) => (
+                <motion.div
+                  key={title}
+                  whileHover={{ y: -4 }}
+                  className="rounded-3xl border border-slate-200 bg-white p-5 shadow-md"
+                >
+                  <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-amber-100 text-amber-700">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h2 className="mb-2 text-lg font-bold text-slate-900">{title}</h2>
+                  <p className="text-sm leading-7 text-slate-600">{text}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <main className="space-y-8">
+              {content.sections.map((section) => (
+                <motion.section
+                  key={section.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="rounded-3xl border border-slate-200 bg-white p-5 shadow-md sm:p-6"
+                >
+                  <h2 className="mb-4 text-xl font-black text-slate-900 sm:text-2xl">{section.title}</h2>
+                  <div className="space-y-4 text-base leading-8 text-slate-700">
+                    {section.content.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                </motion.section>
+              ))}
+            </main>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-8 rounded-3xl border border-slate-200 bg-white p-5 shadow-md"
+            >
+              <h2 className="mb-3 flex items-center gap-2 text-xl font-black text-slate-900">
+                <Mail className="h-5 w-5 text-slate-700" />
+                {content.supportTitle}
+              </h2>
+              <p className="text-base leading-8 text-slate-700">
+                {content.supportText}{" "}
+                <a href="mailto:imeisafe@gmail.com" className="font-bold text-amber-700">imeisafe@gmail.com</a>
+              </p>
+            </motion.div>
+
+            <div className="mt-8 flex justify-center">
               <Link href="/">
-                <a className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-amber-200 hover:text-amber-700">
-                  <ArrowLeft className="h-4 w-4" />
-                  {content.back}
+                <a className="inline-flex items-center gap-2 rounded-full bg-amber-600 px-6 py-3 text-base font-bold text-white shadow-lg shadow-amber-600/20 transition hover:bg-amber-500">
+                  <Ban className="h-4 w-4" />
+                  {content.footer}
                 </a>
               </Link>
             </div>
-          </div>
-        </header>
+          </motion.div>
 
-        <section className="mb-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {content.highlights.map(({ icon: Icon, title, text }) => (
-            <div key={title} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-              <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50 text-amber-700">
-                <Icon className="h-5 w-5" />
-              </div>
-              <h2 className="mb-2 text-lg font-bold text-slate-900">{title}</h2>
-              <p className="text-sm leading-7 text-slate-600">{text}</p>
+          <motion.footer
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="mt-20 w-full border-t border-slate-200 bg-white/50 py-12 px-4"
+          >
+            <div className="text-center">
+              <p className="text-sm text-slate-600">© {new Date().getFullYear()} IMEI SAFE. جميع الحقوق محفوظة.</p>
+              <p className="mt-2 text-xs text-slate-500">منصة موثوقة لحماية هاتفك من السرقة والضياع</p>
             </div>
-          ))}
-        </section>
-
-        <main className="rounded-[28px] border border-slate-200 bg-white p-5 shadow-sm sm:p-8 lg:p-10">
-          <div className="mb-8 rounded-2xl border border-amber-100 bg-amber-50 p-4 text-sm leading-7 text-amber-900">
-            <p className="font-bold">{content.noticeTitle}</p>
-            <p>{content.noticeText}</p>
-          </div>
-
-          <div className="space-y-8">
-            {content.sections.map((section) => (
-              <section key={section.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6">
-                <h2 className="mb-4 text-xl font-black text-slate-900 sm:text-2xl">{section.title}</h2>
-                <div className="space-y-4 text-base leading-8 text-slate-700">
-                  {section.content.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                </div>
-              </section>
-            ))}
-          </div>
-
-          <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-5">
-            <h2 className="mb-3 flex items-center gap-2 text-xl font-black text-slate-900">
-              <Mail className="h-5 w-5 text-slate-700" />
-              {content.supportTitle}
-            </h2>
-            <p className="text-base leading-8 text-slate-700">
-              {content.supportText} <a href="mailto:imeisafe@gmail.com" className="font-bold text-amber-700">imeisafe@gmail.com</a>
-            </p>
-          </div>
-
-          <div className="mt-8 flex justify-center">
-            <Link href="/">
-              <a className="inline-flex items-center gap-2 rounded-full bg-amber-600 px-6 py-3 text-base font-bold text-white shadow-lg shadow-amber-600/20 transition hover:bg-amber-500">
-                <Ban className="h-4 w-4" />
-                {content.footer}
-              </a>
-            </Link>
-          </div>
-        </main>
+          </motion.footer>
+        </div>
       </div>
     </div>
   );

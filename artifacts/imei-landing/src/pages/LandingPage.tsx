@@ -49,6 +49,7 @@ export default function LandingPage() {
               <a href="#faq" className="hover:text-primary transition-colors">الأسئلة الشائعة</a>
               <Link href="/terms-and-conditions"><a className="hover:text-primary transition-colors">شروط الاستخدام</a></Link>
               <Link href="/privacy-policy"><a className="hover:text-primary transition-colors">سياسة الخصوصية</a></Link>
+              <Link href="/refund-policy"><a className="hover:text-primary transition-colors">سياسة الاسترداد</a></Link>
             </nav>
 
             {/* Actions (Left in RTL) */}
@@ -78,6 +79,7 @@ export default function LandingPage() {
             <a href="#faq" onClick={() => setMobileMenuOpen(false)}>الأسئلة الشائعة</a>
             <Link href="/terms-and-conditions" onClick={() => setMobileMenuOpen(false)}><a>شروط الاستخدام</a></Link>
             <Link href="/privacy-policy" onClick={() => setMobileMenuOpen(false)}><a>سياسة الخصوصية</a></Link>
+            <Link href="/refund-policy" onClick={() => setMobileMenuOpen(false)}><a>سياسة الاسترداد</a></Link>
             <Button asChild className="rounded-full bg-primary mt-4 py-4 text-base">
               <a href="https://play.google.com/store/apps/details?id=com.imeisafe.app">
                 <span className="ml-2 inline-flex items-center"><Play size={18} /></span>
@@ -651,6 +653,7 @@ export default function LandingPage() {
               <a href="#faq" className="hover:text-white transition-colors">الأسئلة الشائعة</a>
               <Link href="/privacy-policy" className="hover:text-white transition-colors">سياسة الخصوصية</Link>
               <Link href="/terms-and-conditions" className="hover:text-white transition-colors">الشروط والأحكام</Link>
+              <Link href="/refund-policy" className="hover:text-white transition-colors">سياسة الاسترداد</Link>
             </nav>
 
             <div className="flex gap-3 md:gap-4">

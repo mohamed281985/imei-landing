@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "wouter";
-import { SiGoogleplay, SiWhatsapp } from "react-icons/si";
-import { Shield, Smartphone, Lock, Search, BadgeCheck, Bell, PlusCircle, ArrowLeftRight, Check, X, Menu, X as XIcon, FileText, ShoppingBag, Star } from "lucide-react";
+import { Shield, Smartphone, Lock, Search, BadgeCheck, Bell, PlusCircle, ArrowLeftRight, Check, X, Menu, X as XIcon, FileText, ShoppingBag, Star, Play, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -48,13 +47,16 @@ export default function LandingPage() {
               <a href="#features" className="hover:text-primary transition-colors">المميزات</a>
               <a href="#pricing" className="hover:text-primary transition-colors">الباقات</a>
               <a href="#faq" className="hover:text-primary transition-colors">الأسئلة الشائعة</a>
+              <Link href="/terms-and-conditions"><a className="hover:text-primary transition-colors">شروط الاستخدام</a></Link>
+              <Link href="/privacy-policy"><a className="hover:text-primary transition-colors">سياسة الخصوصية</a></Link>
+              <Link href="/refund-policy"><a className="hover:text-primary transition-colors">سياسة الاسترداد</a></Link>
             </nav>
 
             {/* Actions (Left in RTL) */}
             <div className="flex items-center gap-3 md:gap-4">
               <Button asChild className="hidden sm:flex rounded-full bg-primary hover:bg-primary/90 text-white font-semibold shadow-lg shadow-primary/20 text-base md:text-lg px-5 md:px-7 py-2.5">
-                <a href="https://play.google.com/store/apps/details?id=com.imei.app" target="_blank" rel="noreferrer">
-                  <SiGoogleplay className="ml-2 w-5 h-5" />
+                <a href="https://play.google.com/store/apps/details?id=com.imeisafe.app" target="_blank" rel="noreferrer">
+                  <span className="ml-2 inline-flex items-center"><Play size={20} /></span>
                   حمّل التطبيق
                 </a>
               </Button>
@@ -75,9 +77,12 @@ export default function LandingPage() {
             <a href="#features" onClick={() => setMobileMenuOpen(false)}>المميزات</a>
             <a href="#pricing" onClick={() => setMobileMenuOpen(false)}>الباقات</a>
             <a href="#faq" onClick={() => setMobileMenuOpen(false)}>الأسئلة الشائعة</a>
+            <Link href="/terms-and-conditions" onClick={() => setMobileMenuOpen(false)}><a>شروط الاستخدام</a></Link>
+            <Link href="/privacy-policy" onClick={() => setMobileMenuOpen(false)}><a>سياسة الخصوصية</a></Link>
+            <Link href="/refund-policy" onClick={() => setMobileMenuOpen(false)}><a>سياسة الاسترداد</a></Link>
             <Button asChild className="rounded-full bg-primary mt-4 py-4 text-base">
-              <a href="https://play.google.com/store/apps/details?id=com.imei.app">
-                <SiGoogleplay className="ml-2" />
+              <a href="https://play.google.com/store/apps/details?id=com.imeisafe.app">
+                <span className="ml-2 inline-flex items-center"><Play size={18} /></span>
                 حمّل من Google Play
               </a>
             </Button>
@@ -182,7 +187,7 @@ export default function LandingPage() {
                 className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start mb-4 md:mb-8"
               >
                 <motion.a
-                  href="https://play.google.com/store/apps/details?id=com.imei.app"
+                  href="https://play.google.com/store/apps/details?id=com.imeisafe.app"
                   target="_blank" rel="noreferrer"
                   whileHover={{ scale: 1.04, y: -3 }}
                   whileTap={{ scale: 0.97 }}
@@ -193,7 +198,7 @@ export default function LandingPage() {
                     boxShadow: "0 8px 28px rgba(37,99,235,0.38),0 2px 8px rgba(37,99,235,0.18)",
                   }}
                 >
-                  <SiGoogleplay className="w-4 h-4 md:w-5 md:h-5" />
+                  <span className="inline-flex items-center"><Play size={18} /></span>
                   تحميل التطبيق
                 </motion.a>
 
@@ -211,7 +216,7 @@ export default function LandingPage() {
                     boxShadow: "0 4px 20px rgba(37,99,235,0.09)",
                   }}
                 >
-                  <Search className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                  <span className="inline-flex items-center"><Search size={16} /></span>
                   فحص IMEI الآن
                 </motion.a>
               </motion.div>
@@ -615,13 +620,13 @@ export default function LandingPage() {
           <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
             <Button size="lg" asChild className="rounded-full h-14 md:h-16 px-6 md:px-8 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-base md:text-xl shadow-xl shadow-[#25D366]/20">
               <a href="https://wa.me/+201023579280" target="_blank" rel="noreferrer">
-                <SiWhatsapp className="ml-3 w-5 h-5 md:w-6 md:h-6" />
+                <span className="ml-3 inline-flex items-center"><MessageCircle size={22} /></span>
                 تواصل عبر واتساب
               </a>
             </Button>
             <Button size="lg" asChild className="rounded-full h-14 md:h-16 px-6 md:px-8 bg-primary hover:bg-primary/90 text-white font-bold text-base md:text-xl shadow-xl shadow-primary/20">
               <a href="https://play.google.com/store/apps/details?id=com.imei.app" target="_blank" rel="noreferrer">
-                <SiGoogleplay className="ml-3 w-5 h-5 md:w-6 md:h-6" />
+                <span className="ml-3 inline-flex items-center"><Play size={22} /></span>
                 حمّل من Google Play
               </a>
             </Button>
@@ -646,12 +651,14 @@ export default function LandingPage() {
               <a href="#features" className="hover:text-white transition-colors">المميزات</a>
               <a href="#pricing" className="hover:text-white transition-colors">الباقات</a>
               <a href="#faq" className="hover:text-white transition-colors">الأسئلة الشائعة</a>
-              <a href="#" className="hover:text-white transition-colors">سياسة الخصوصية</a>
+              <Link href="/privacy-policy" className="hover:text-white transition-colors">سياسة الخصوصية</Link>
+              <Link href="/terms-and-conditions" className="hover:text-white transition-colors">الشروط والأحكام</Link>
+              <Link href="/refund-policy" className="hover:text-white transition-colors">سياسة الاسترداد</Link>
             </nav>
 
             <div className="flex gap-3 md:gap-4">
               <a href="https://wa.me/+201023579280" className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all text-white">
-                <SiWhatsapp className="w-4 h-4 md:w-5 md:h-5" />
+                <span className="inline-flex items-center"><MessageCircle size={18} /></span>
               </a>
             </div>
           </div>
@@ -669,7 +676,7 @@ export default function LandingPage() {
         className="fixed bottom-4 md:bottom-6 left-4 md:left-6 z-50 w-14 h-14 md:w-16 md:h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform"
         aria-label="تواصل معنا عبر واتساب"
       >
-        <SiWhatsapp className="w-7 h-7 md:w-8 md:h-8" />
+        <span className="inline-flex items-center"><MessageCircle size={28} /></span>
       </a>
     </div>
   );
